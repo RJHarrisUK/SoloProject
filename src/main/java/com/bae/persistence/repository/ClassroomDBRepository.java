@@ -22,6 +22,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	@Inject
 	private JSONUtil util;
 	
+	// READ
 	@Override
 	@Transactional(REQUIRED)
 	public String getAllClassrooms() {
@@ -30,6 +31,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		+ "{\"message\": \"here are all the classrooms\"}";
 	}
 
+	// CREATE
 	@Override
 	@Transactional(REQUIRED)
 	public String createClassroom(String classroom) {
@@ -38,6 +40,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"classroom has been successfully added\"}";
 	}
 
+	// DELETE
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteClassroom(int id) {
@@ -50,6 +53,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"No classroom found with this id.\"}";
 	}
 
+	// UPDATE - unresolved
 	@Override
 	@Transactional(REQUIRED)
 	public String updateClassroom(int id, String classroom) {

@@ -15,12 +15,14 @@ public class TraineeMapRepository implements TraineeRepository {
 	JSONUtil util;
 	Map<Integer, Trainee> traineeMap;
 	Trainee newTrainee;
-	
+
+	// READ
 	@Override
 	public String getAllTrainees() {
 		return util.getJSONForObject(traineeMap.values());
 	}
 
+	// CREATE
 	@Override
 	public String createTrainee(String trainee) {
 		newTrainee = util.getObjectForJSON(trainee, Trainee.class);
@@ -28,16 +30,18 @@ public class TraineeMapRepository implements TraineeRepository {
 		return "Trainee successfully created";
 	}
 
+	// DELETE
 	@Override
 	public String deleteTrainee(int traineeID) {
 		traineeMap.remove(traineeID);
 		return "Trainee successfully deleted";
 	}
 
+	// UPDATE - unresolved
 	@Override
 	public String updateTrainee(int traineeID, String trainee) {
 		Trainee upTrainee = util.getObjectForJSON(trainee, Trainee.class);
-		
+
 		if (traineeMap.containsKey(traineeID)) {
 			traineeMap.replace(traineeID, upTrainee);
 			return "Trainee added" + util.getJSONForObject(traineeMap.values());
@@ -45,6 +49,4 @@ public class TraineeMapRepository implements TraineeRepository {
 		return "Cannot update this trainee.";
 	}
 
-
-	}
-
+}
