@@ -2,13 +2,13 @@ package com.bae.business;
 
 public interface TraineeService {
 
-//	//C
-//	String createClassroom(String classroom);
+	//C
+	String createTrainee(String trainee);
 	//R
-	String getAllClassrooms();
+	String getAllTrainees();
 //	//U
-//	String updateClassroom(String classroom, int id);
+//	String updateTrainee(String trainee, int id);
 //	//D
-//	String deleteClassroom(int id);
+//	String deleteTrainee(int id);
 	
 }

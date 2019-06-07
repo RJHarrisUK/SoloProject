@@ -12,10 +12,18 @@ public class TraineeMapRepository implements TraineeRepository {
 	@Inject
 	JSONUtil util;
 	Map<Integer, Trainee> traineeMap;
+	Trainee newTrainee;
 	
 	@Override
 	public String getAllTrainees() {
 		return util.getJSONForObject(traineeMap.values());
+	}
+
+	@Override
+	public String createTrainee(String trainee) {
+		newTrainee = util.getObjectForJSON(trainee, Trainee.class);
+		traineeMap.put(newTrainee.getTraineeID(), newTrainee);
+		return "Trainee successfully created";
 	}
 
 
