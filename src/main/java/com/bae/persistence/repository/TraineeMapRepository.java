@@ -26,6 +26,12 @@ public class TraineeMapRepository implements TraineeRepository {
 		return "Trainee successfully created";
 	}
 
+	@Override
+	public String deleteTrainee(int traineeID) {
+		traineeMap.remove(traineeID);
+		return "Trainee successfully deleted";
+	}
+
 
 	}
 

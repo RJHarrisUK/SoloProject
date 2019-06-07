@@ -8,7 +8,7 @@ public interface TraineeService {
 	String getAllTrainees();
 //	//U
 //	String updateTrainee(String trainee, int id);
-//	//D
-//	String deleteTrainee(int id);
+	//D
+	String deleteTrainee(int traineeID);
 	
 }
