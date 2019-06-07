@@ -38,4 +38,16 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"classroom has been successfully added\"}";
 	}
 
+	@Override
+	@Transactional(REQUIRED)
+	public String deleteClassroom(int id) {
+		Classroom classroom = manager.find(Classroom.class, id);
+		
+		if (manager.contains(classroom)) {
+			manager.remove(classroom);
+			  return "{\"message\": \"Classroom sucessfully deleted " + id + " \"}";
+		}
+		return "{\"message\": \"No classroom found with this id.\"}";
+	}
+
 }

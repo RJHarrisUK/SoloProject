@@ -27,4 +27,10 @@ public class ClassroomMapRepository implements ClassroomRepository {
 		return "Classroom successfully created";
 	}
 
+	@Override
+	public String deleteClassroom(int id) {
+		classroomMap.remove(id);
+		return "Classroom successfully deleted";
+	}
+
 }
