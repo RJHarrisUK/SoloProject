@@ -2,8 +2,8 @@
 
 public interface ClassroomRepository {
 
-//	//C
-//	String createClassroom(String classroom);
+	//C
+	String createClassroom(String classroom);
 	//R
 	String getAllClassrooms();
 //	//U

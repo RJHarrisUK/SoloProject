@@ -3,7 +3,7 @@ package com.bae.business;
 public interface ClassroomService {
 
 //	//C
-//	String createClassroom(String classroom);
+	String createClassroom(String classroom);
 	//R
 	String getAllClassrooms();
 //	//U

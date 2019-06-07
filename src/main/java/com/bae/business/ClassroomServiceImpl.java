@@ -14,4 +14,9 @@ public class ClassroomServiceImpl implements ClassroomService {
 		return classRepo.getAllClassrooms();
 	}
 
+	@Override
+	public String createClassroom(String classroom) {
+		return classRepo.createClassroom(classroom);
+	}
+
 }

@@ -20,4 +20,11 @@ public class ClassroomMapRepository implements ClassroomRepository {
 		return util.getJSONForObject(classroomMap.values());
 	}
 
+	@Override
+	public String createClassroom(String classroom) {
+		Classroom newClassroom = util.getObjectForJSON(classroom, Classroom.class);
+		classroomMap.put(newClassroom.getId(), newClassroom);
+		return "Classroom successfully created";
+	}
+
 }
