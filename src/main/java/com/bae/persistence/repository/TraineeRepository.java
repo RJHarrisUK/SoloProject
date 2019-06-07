@@ -6,8 +6,8 @@ public interface TraineeRepository {
 	String createTrainee(String trainee);
 	//R
 	String getAllTrainees();
-//	//U	
-//	String updateTrainee(int id, String trainee);
+	//U	
+	String updateTrainee(int traineeID, String trainee);
 	//D
 	String deleteTrainee(int traineeID);
 }

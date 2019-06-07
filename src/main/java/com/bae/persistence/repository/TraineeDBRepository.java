@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
 import com.bae.persistence.domain.Trainee;
 import com.bae.util.JSONUtil;
 
@@ -48,5 +47,22 @@ public class TraineeDBRepository implements TraineeRepository {
 			 return "{\"message\": \"Trainee " + traineeID +  " sucessfully deleted \"}";
 		}
 		return "{\"message\": \"No trainee found with this id.\"}";
+	}
+
+	@Override
+	@Transactional(REQUIRED)
+	public String updateTrainee(int traineeID, String trainee) {
+
+		Trainee newTrainee = util.getObjectForJSON(trainee, Trainee.class);
+		
+		Trainee oldTrainee = manager.find(Trainee.class, traineeID);
+		
+	if (oldTrainee != null) {
+			
+			oldTrainee.setTraineeName(newTrainee.getTraineeName());
+			
+			manager.persist(oldTrainee);
+		}
+		return "{\"message\": \"trainee successfully updated\"}";
 	}
 }
