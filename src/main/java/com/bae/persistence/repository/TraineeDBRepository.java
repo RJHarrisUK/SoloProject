@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.bae.persistence.domain.Trainee;
 import com.bae.util.JSONUtil;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
@@ -27,5 +28,13 @@ public class TraineeDBRepository implements TraineeRepository {
 		Query query = manager.createQuery("SELECT a from Trainee a");
 		return util.getJSONForObject(query.getResultList())
 		+ "{\"message\": \"here are all the trainees\"}";
+	}
+
+	@Override
+	@Transactional(REQUIRED)
+	public String createTrainee(String trainee) {
+		Trainee aTrainee = util.getObjectForJSON(trainee, Trainee.class);
+		manager.persist(aTrainee);
+		return "{\"message\": \"trainee has been successfully added\"}";
 	}
 }
