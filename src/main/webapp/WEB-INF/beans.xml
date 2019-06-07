@@ -5,7 +5,17 @@
       http://xmlns.jcp.org/xml/ns/javaee
       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd" bean-discovery-mode="all">
       
-      <!-- <alternatives>
-        <class>com.qa.service.repository.AccountMapRepository</class>
-    </alternatives> -->
+      <!-- 1. DELETE THIS LINE TO SWITCH FROM DATABASE TO LOCAL STORAGE
+      <alternatives>
+        <class>com.bae.persistence.repository.ClassroomMapRepository</class>
+    </alternatives> 
+    1. AND THIS LINE -->
+    
+    
+    <!-- 2. DELETE THIS LINE TO SWITCH FROM DATABASE TO LOCAL STORAGE
+    <alternatives>
+        <class>com.bae.persistence.repository.TraineeMapRepository</class>
+    </alternatives> 
+    2. AND THIS LINE -->
+    
 </beans>

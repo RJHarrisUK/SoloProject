@@ -16,24 +16,32 @@ public class TraineeController {
 
 	@Inject TraineeService service;
 	
+	
+	// READ
 	@Path("/getAllTrainees")
 	@GET
 	@Produces({" application/json "})
 	public String getAllTrainees() {
 		return service.getAllTrainees();
 	}
+	
+	// CREATE
 	@Path("/createTrainee")
 	@POST
 	@Produces({" application/json "})
 	public String createTrainee(String trainee) {
 		return service.createTrainee(trainee);
 	}
+	
+	// DELETE
 	@Path("/deleteTrainee/{traineeID}")
 	@DELETE
 	@Produces({" application/json "})
 	public String deleteTrainee(@PathParam("traineeID") int traineeID) {
 		return service.deleteTrainee(traineeID);
 	}
+	
+	// UPDATE - unresolved
 	@Path("/updateTrainee/{traineeID}")
 	@PUT
 	@Produces({" application/json "})

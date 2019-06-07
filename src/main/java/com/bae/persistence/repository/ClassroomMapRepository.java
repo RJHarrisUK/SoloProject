@@ -16,11 +16,13 @@ public class ClassroomMapRepository implements ClassroomRepository {
 	Map<Integer, Classroom> classroomMap;
 	Classroom newClassroom;
 	
+	// READ
 	@Override
 	public String getAllClassrooms() {
 		return util.getJSONForObject(classroomMap.values());
 	}
 
+	// CREATE
 	@Override
 	public String createClassroom(String classroom) {
 		newClassroom = util.getObjectForJSON(classroom, Classroom.class);
@@ -28,12 +30,14 @@ public class ClassroomMapRepository implements ClassroomRepository {
 		return "Classroom successfully created";
 	}
 
+	// DELETE
 	@Override
 	public String deleteClassroom(int id) {
 		classroomMap.remove(id);
 		return "Classroom successfully deleted";
 	}
 
+	// UPDATE - unresolved
 	@Override
 	public String updateClassroom(int id, String classroom) {
 		Classroom upClassroom = util.getObjectForJSON(classroom, Classroom.class);

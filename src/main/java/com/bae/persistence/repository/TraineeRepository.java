@@ -2,12 +2,15 @@ package com.bae.persistence.repository;
 
 public interface TraineeRepository {
 
-	//C
+	// CREATE
 	String createTrainee(String trainee);
-	//R
+
+	// READ
 	String getAllTrainees();
-	//U	
+
+	// UPDATE - unresolved
 	String updateTrainee(int traineeID, String trainee);
-	//D
+
+	// DESTROY
 	String deleteTrainee(int traineeID);
 }

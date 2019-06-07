@@ -2,12 +2,15 @@ package com.bae.business;
 
 public interface ClassroomService {
 
-	//C
+	//CREATE
 	String createClassroom(String classroom);
-	//R
+	
+	//READ
 	String getAllClassrooms();
-	//U
+	
+	//UPDATE - unresolved
 	String updateClassroom(String classroom, int id);
-	//D
+	
+	//DESTROY 
 	String deleteClassroom(int id);
 }

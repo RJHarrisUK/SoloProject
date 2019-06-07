@@ -17,24 +17,31 @@ public class ClassroomController {
 	@Inject
 	private ClassroomService service;
 	
+	// READ
 	@Path("/getAllClassrooms")
 	@GET
 	@Produces({" application/json "})
 	public String getAllClassrooms() {
 		return service.getAllClassrooms();
 	}
+	
+	// CREATE
 	@Path("/createClassroom")
 	@POST
 	@Produces({" application/json "})
 	public String createClassroom(String classroom) {
 		return service.createClassroom(classroom);
 	}
+	
+	// DELETE
 	@Path("/deleteClassroom/{id}")
 	@DELETE
 	@Produces({"application/json"})
 	public String deleteClassroom(@PathParam("id") int id) {
 		return service.deleteClassroom(id);
 }
+	
+	// UPDATE - unresolved
 	@Path("/updateClassroom/{id}")
 	@PUT
 	@Produces({"application/json"})

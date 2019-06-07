@@ -1,13 +1,16 @@
- package com.bae.persistence.repository;
+package com.bae.persistence.repository;
 
 public interface ClassroomRepository {
 
-	//C
+	// CREATE
 	String createClassroom(String classroom);
-	//R
+
+	// READ
 	String getAllClassrooms();
-	//U	
+
+	// UPDATE - unresolved
 	String updateClassroom(int id, String classroom);
-	//D
+
+	// DESTROY
 	String deleteClassroom(int id);
 }

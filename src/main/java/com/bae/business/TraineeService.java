@@ -2,13 +2,16 @@ package com.bae.business;
 
 public interface TraineeService {
 
-	//C
+	//CREATE
 	String createTrainee(String trainee);
-	//R
+	
+	//READ
 	String getAllTrainees();
-	//U
+	
+	//UPDATE - unresolved
 	String updateTrainee(String trainee, int traineeID);
-	//D
+	
+	//DESTROY
 	String deleteTrainee(int traineeID);
 	
 }

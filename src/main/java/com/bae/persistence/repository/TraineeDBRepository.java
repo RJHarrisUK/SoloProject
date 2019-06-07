@@ -22,6 +22,7 @@ public class TraineeDBRepository implements TraineeRepository {
 	@Inject
 	private JSONUtil util;
 	
+	// READ
 	@Transactional(REQUIRED)
 	public String getAllTrainees() {
 		Query query = manager.createQuery("SELECT a from Trainee a");
@@ -29,6 +30,7 @@ public class TraineeDBRepository implements TraineeRepository {
 		+ "{\"message\": \"here are all the trainees\"}";
 	}
 
+	// CREATE
 	@Override
 	@Transactional(REQUIRED)
 	public String createTrainee(String trainee) {
@@ -37,6 +39,7 @@ public class TraineeDBRepository implements TraineeRepository {
 		return "{\"message\": \"trainee has been successfully added\"}";
 	}
 
+	// DELETE
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteTrainee(int traineeID) {
@@ -49,6 +52,7 @@ public class TraineeDBRepository implements TraineeRepository {
 		return "{\"message\": \"No trainee found with this id.\"}";
 	}
 
+	// UPDATE - unresolved
 	@Override
 	@Transactional(REQUIRED)
 	public String updateTrainee(int traineeID, String trainee) {
