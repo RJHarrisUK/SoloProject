@@ -15,7 +15,7 @@ public class ClassroomController {
 	
 	@Path("/getAllClassrooms")
 	@GET
-	@Produces({"application/json"})
+	@Produces({" application/json "})
 	public String getAllClassrooms() {
 		return service.getAllClassrooms();
 	}

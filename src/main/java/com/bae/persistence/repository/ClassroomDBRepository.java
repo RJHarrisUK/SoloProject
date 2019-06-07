@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 import javax.persistence.Query;
 import com.bae.util.JSONUtil;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
-//import static javax.transaction.Transactional.TxType.REQUIRED;
+import static javax.transaction.Transactional.TxType.REQUIRED;
 
 @Transactional(SUPPORTS)
 @Default
@@ -21,10 +21,10 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	private JSONUtil util;
 	
 	@Override
-	@Transactional(SUPPORTS)
+	@Transactional(REQUIRED)
 	public String getAllClassrooms() {
 		Query query = manager.createQuery("SELECT a from Classroom a");
-		return util.getJSONForObject(query.getMaxResults());
+		return util.getJSONForObject(query.getResultList());
 	}
 
 }
