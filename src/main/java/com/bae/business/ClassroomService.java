@@ -6,8 +6,8 @@ public interface ClassroomService {
 	String createClassroom(String classroom);
 	//R
 	String getAllClassrooms();
-//	//U
-//	String updateClassroom(String classroom, int id);
+	//U
+	String updateClassroom(String classroom, int id);
 	//D
 	String deleteClassroom(int id);
 }

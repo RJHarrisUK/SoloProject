@@ -33,4 +33,14 @@ public class ClassroomMapRepository implements ClassroomRepository {
 		return "Classroom successfully deleted";
 	}
 
-}
+	@Override
+	public String updateClassroom(int id, String classroom) {
+		Classroom upClassroom = util.getObjectForJSON(classroom, Classroom.class);
+		
+		if (classroomMap.containsKey(id)) {
+			classroomMap.replace(id, upClassroom);
+			return "Classroom added" + util.getJSONForObject(classroomMap.values());
+		}
+		return "Cannot update this classroom.";
+	}
+	}

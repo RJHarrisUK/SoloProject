@@ -50,4 +50,21 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"No classroom found with this id.\"}";
 	}
 
+	@Override
+	@Transactional(REQUIRED)
+	public String updateClassroom(int id, String classroom) {
+		
+		Classroom newClassroom = util.getObjectForJSON(classroom, Classroom.class);
+		
+		Classroom oldClassroom = manager.find(Classroom.class, id);
+		
+		if (oldClassroom != null) {
+			
+			oldClassroom.setTrainer(newClassroom.getTrainer());
+
+			manager.persist(oldClassroom);
+		}
+		return "{\"message\": \"classroom successfully updated\"}";
+	}
+
 }
