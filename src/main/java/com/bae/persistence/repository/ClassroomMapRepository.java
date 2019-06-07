@@ -14,6 +14,7 @@ public class ClassroomMapRepository implements ClassroomRepository {
 	@Inject
 	JSONUtil util;
 	Map<Integer, Classroom> classroomMap;
+	Classroom newClassroom;
 	
 	@Override
 	public String getAllClassrooms() {
@@ -22,7 +23,7 @@ public class ClassroomMapRepository implements ClassroomRepository {
 
 	@Override
 	public String createClassroom(String classroom) {
-		Classroom newClassroom = util.getObjectForJSON(classroom, Classroom.class);
+		newClassroom = util.getObjectForJSON(classroom, Classroom.class);
 		classroomMap.put(newClassroom.getId(), newClassroom);
 		return "Classroom successfully created";
 	}

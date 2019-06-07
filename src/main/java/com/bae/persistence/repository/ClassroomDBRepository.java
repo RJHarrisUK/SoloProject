@@ -41,11 +41,11 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteClassroom(int id) {
-		Classroom classroom = manager.find(Classroom.class, id);
+		Classroom delClassroom = manager.find(Classroom.class, id);
 		
-		if (manager.contains(classroom)) {
-			manager.remove(classroom);
-			  return "{\"message\": \"Classroom sucessfully deleted " + id + " \"}";
+		if (manager.contains(delClassroom)) {
+			manager.remove(delClassroom);
+			  return "{\"message\": \"Classroom" + id +  "sucessfully deleted \"}";
 		}
 		return "{\"message\": \"No classroom found with this id.\"}";
 	}

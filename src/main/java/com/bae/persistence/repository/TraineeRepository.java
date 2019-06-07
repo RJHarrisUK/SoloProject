@@ -8,6 +8,6 @@ public interface TraineeRepository {
 	String getAllTrainees();
 //	//U	
 //	String updateTrainee(int id, String trainee);
-//	//D
-//	String deleteTrainee(int id);
+	//D
+	String deleteTrainee(int traineeID);
 }

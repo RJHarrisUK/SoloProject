@@ -37,4 +37,16 @@ public class TraineeDBRepository implements TraineeRepository {
 		manager.persist(aTrainee);
 		return "{\"message\": \"trainee has been successfully added\"}";
 	}
+
+	@Override
+	@Transactional(REQUIRED)
+	public String deleteTrainee(int traineeID) {
+		Trainee delTrainee = manager.find(Trainee.class, traineeID);
+		
+		if (manager.contains(delTrainee)) {
+			manager.remove(delTrainee);
+			 return "{\"message\": \"Trainee " + traineeID +  " sucessfully deleted \"}";
+		}
+		return "{\"message\": \"No trainee found with this id.\"}";
+	}
 }

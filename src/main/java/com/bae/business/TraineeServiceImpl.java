@@ -19,6 +19,11 @@ public class TraineeServiceImpl implements TraineeService {
 		return traineeRepo.createTrainee(trainee);
 	}
 
+	@Override
+	public String deleteTrainee(int traineeID) {
+		return traineeRepo.deleteTrainee(traineeID);
+	}
+
 	
 	
 }
