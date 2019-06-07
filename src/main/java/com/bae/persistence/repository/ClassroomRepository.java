@@ -6,8 +6,8 @@ public interface ClassroomRepository {
 	String createClassroom(String classroom);
 	//R
 	String getAllClassrooms();
-//	//U
-//	String updateClassroom(String classroom, int id);
+	//U	
+	String updateClassroom(int id, String classroom);
 	//D
 	String deleteClassroom(int id);
 }
