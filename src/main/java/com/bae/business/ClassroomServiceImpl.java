@@ -33,4 +33,10 @@ public class ClassroomServiceImpl implements ClassroomService {
 		return classRepo.updateClassroom(id, classroom);
 	}
 
+	// READ2
+	@Override
+	public String findClassroom(int id) {
+		return classRepo.findClassroom(id);
+	}
+
 }

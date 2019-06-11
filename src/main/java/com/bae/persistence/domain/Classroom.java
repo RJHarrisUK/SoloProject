@@ -28,10 +28,10 @@ public class Classroom {
 	@Column(length = 50)
 	private String trainer;
 	// one to many - joining on trainee id (which represents class.id)
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Set<Trainee> trainees;
+//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+//	@OnDelete(action = OnDeleteAction.CASCADE)
+//	private Set<Trainee> trainees;
 
 	// default constructor
 	public Classroom() {
@@ -42,17 +42,17 @@ public class Classroom {
 		super();
 		this.id = id;
 		this.trainer = trainer;
-		this.trainees = trainees;
+//		this.trainees = trainees;
 	}
 
 	// getters and setters
-	public Set<Trainee> getTrainees() {
-		return trainees;
-	}
+//	public Set<Trainee> getTrainees() {
+//		return trainees;
+//	}
 
-	public void setTrainees(Set<Trainee> trainees) {
-		this.trainees = trainees;
-	}
+//	public void setTrainees(Set<Trainee> trainees) {
+//		this.trainees = trainees;
+//	}
 
 	public int getId() {
 		return id;

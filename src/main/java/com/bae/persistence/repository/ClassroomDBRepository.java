@@ -28,7 +28,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	public String getAllClassrooms() {
 		Query query = manager.createQuery("SELECT a from Classroom a");
 		return util.getJSONForObject(query.getResultList())
-		+ "{\"message\": \"here are all the classrooms\"}";
+;
 	}
 
 	// CREATE
@@ -70,5 +70,14 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		}
 		return "{\"message\": \"classroom successfully updated\"}";
 	}
+
+	// READ2
+	@Override
+	@Transactional(REQUIRED)
+	public String findClassroom(int id) {
+		return util.getJSONForObject(manager.find(Classroom.class, id));
+
+	}
+	
 
 }

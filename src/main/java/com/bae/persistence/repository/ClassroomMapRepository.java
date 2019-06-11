@@ -48,4 +48,10 @@ public class ClassroomMapRepository implements ClassroomRepository {
 		}
 		return "Cannot update this classroom.";
 	}
+
+	// READ2
+	@Override
+	public String findClassroom(int id) {
+		return util.getJSONForObject(classroomMap.get(id));
+	}
 	}

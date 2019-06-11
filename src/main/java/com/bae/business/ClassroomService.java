@@ -13,4 +13,7 @@ public interface ClassroomService {
 	
 	//DESTROY 
 	String deleteClassroom(int id);
+	
+	//READ2
+	String findClassroom(int id);
 }

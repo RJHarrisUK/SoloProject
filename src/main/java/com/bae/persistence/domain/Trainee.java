@@ -23,8 +23,8 @@ public class Trainee {
 	@Column(length = 50)
 	private String id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Classroom classroom;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	private Classroom classroom;
 
 	// default constructor
 	public Trainee() {

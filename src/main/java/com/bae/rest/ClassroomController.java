@@ -48,4 +48,12 @@ public class ClassroomController {
 	public String updateClassroom(@PathParam("id") String classroom, int id) {
 		return service.updateClassroom(classroom, id);
 	}
+	
+	// READ
+	@Path("/findClassroom/{id}")
+	@GET
+	@Produces({"application/json"})
+	public String findClassroom(@PathParam("id") int id) {
+		return service.findClassroom(id);
+	}
 }

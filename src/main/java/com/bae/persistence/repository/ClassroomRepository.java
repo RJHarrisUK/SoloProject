@@ -13,4 +13,7 @@ public interface ClassroomRepository {
 
 	// DESTROY
 	String deleteClassroom(int id);
+	
+	// READ2
+	String findClassroom(int id);
 }
