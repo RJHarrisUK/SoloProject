@@ -27,8 +27,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	@Transactional(REQUIRED)
 	public String getAllClassrooms() {
 		Query query = manager.createQuery("SELECT a from Classroom a");
-		return util.getJSONForObject(query.getResultList())
-;
+		return util.getJSONForObject(query.getResultList());
 	}
 
 	// CREATE
@@ -48,9 +47,9 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		
 		if (manager.contains(delClassroom)) {
 			manager.remove(delClassroom);
-			  return "{\"message\": \"Classroom" + id +  "sucessfully deleted \"}";
+			  return "{\"message\": \"Classroom " + id +  " sucessfully deleted \"}";
 		}
-		return "{\"message\": \"No classroom found with this id.\"}";
+		return "{\"message\": \"No classroom found with id " + id + ".\"}";
 	}
 
 	// UPDATE - unresolved
