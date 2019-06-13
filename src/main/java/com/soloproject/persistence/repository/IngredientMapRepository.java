@@ -26,7 +26,7 @@ public class IngredientMapRepository implements IngredientRepository {
 	@Override
 	public String createIngredient(String ingredient) {
 		newIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
-		ingredientMap.put(newIngredient.getI_id(), newIngredient);
+		ingredientMap.put(newIngredient.getIngredient_id(), newIngredient);
 		return "Ingredient successfully created";
 	}
 

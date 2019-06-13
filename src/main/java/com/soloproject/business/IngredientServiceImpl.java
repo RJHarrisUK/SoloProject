@@ -1,9 +1,13 @@
 package com.soloproject.business;
 
+import javax.inject.Inject;
+
+import com.soloproject.persistence.repository.IngredientRepository;
+
 public class IngredientServiceImpl implements IngredientService {
 
-//	@Inject
-//	private IngredientRepository ingredientRepo;
+	@Inject
+	private IngredientRepository ingredientRepo;
 //
 //	// READ
 //	@Override
@@ -39,12 +43,11 @@ public class IngredientServiceImpl implements IngredientService {
 	public String createIngredient(String ingredient) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+		}
 
 	@Override
 	public String getAllIngredients() {
-		// TODO Auto-generated method stub
-		return null;
+		return ingredientRepo.getAllIngredients();
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String getAllIngredients() {
-		Query query = manager.createQuery("SELECT a from Ingredients a");
+		Query query = manager.createQuery("SELECT a from Ingredient a");
 		return util.getJSONForObject(query.getResultList());
 	}
 
@@ -64,7 +64,7 @@ public class IngredientDBRepository implements IngredientRepository {
 		
 		if (oldIngredient != null) {
 			
-			oldIngredient.setI_id(newIngredient.getI_id());
+			oldIngredient.setIngredient_id(newIngredient.getIngredient_id());
 
 			manager.persist(oldIngredient);
 		}

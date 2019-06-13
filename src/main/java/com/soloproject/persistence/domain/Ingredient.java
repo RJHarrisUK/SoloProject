@@ -8,18 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ingredients")
+@Table(name = "Ingredient")
 public class Ingredient {
 
 	// attributes & table annotations
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(length = 5)
-	private int i_id;
+	private int ingredient_id;
+	@Column(length = 50)
+	private String  ingredient_name;
 	@Column(length = 50)
 	private int calories;
 	@Column(length = 50)
-	private float total_fat;
+	private int total_fat;
 	@Column(length = 50)
 	private int total_carbs;
 	@Column(length = 50)
@@ -30,12 +32,12 @@ public class Ingredient {
 	}
 
 	// getters and setters
-	public int getI_id() {
-		return i_id;
+	public int getIngredient_id() {
+		return ingredient_id;
 	}
 
-	public void setI_id(int i_id) {
-		this.i_id = i_id;
+	public void setIngredient_id(int ingredient_id) {
+		this.ingredient_id = ingredient_id;
 	}
 
 	public int getCalories() {
@@ -50,7 +52,7 @@ public class Ingredient {
 		return total_fat;
 	}
 
-	public void setTotal_fat(float total_fat) {
+	public void setTotal_fat(int total_fat) {
 		this.total_fat = total_fat;
 	}
 
@@ -68,6 +70,14 @@ public class Ingredient {
 
 	public void setProtein(int protein) {
 		this.protein = protein;
+	}
+
+	public String getIngredient_name() {
+		return ingredient_name;
+	}
+
+	public void setIngredient_name(String ingredient_name) {
+		this.ingredient_name = ingredient_name;
 	}
 
 }
