@@ -1,4 +1,4 @@
-package com.bae.util;
+package com.soloproject.util;
 
 import com.google.gson.Gson;
 

@@ -1,4 +1,4 @@
-package com.bae.APIDevAssessment;
+package com.soloproject.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

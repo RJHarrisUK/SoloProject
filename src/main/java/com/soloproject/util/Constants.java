@@ -1,4 +1,4 @@
-package com.bae.util;
+package com.soloproject.util;
 
 public class Constants {
 

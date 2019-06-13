@@ -1,9 +1,9 @@
-package com.bae.rest;
+package com.soloproject.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("api")
+@ApplicationPath("nutrition")
 
 public class JAXActivator extends Application {
 }

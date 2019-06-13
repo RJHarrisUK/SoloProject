@@ -7,14 +7,14 @@
       
       <!-- 1. DELETE THIS LINE TO SWITCH FROM DATABASE TO LOCAL STORAGE
       <alternatives>
-        <class>com.bae.persistence.repository.ClassroomMapRepository</class>
+        <class>com.soloproject.persistence.repository.IngredientMapRepository</class>
     </alternatives> 
     1. AND THIS LINE -->
     
     
     <!-- 2. DELETE THIS LINE TO SWITCH FROM DATABASE TO LOCAL STORAGE
     <alternatives>
-        <class>com.bae.persistence.repository.TraineeMapRepository</class>
+        <class>com.soloproject.persistence.repository.RecipeMapRepository</class>
     </alternatives> 
     2. AND THIS LINE -->
     
