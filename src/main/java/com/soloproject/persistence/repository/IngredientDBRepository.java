@@ -27,6 +27,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String getAllIngredients() {
+		// Ingredient must be first letter capitalised
 		Query query = manager.createQuery("SELECT a from Ingredient a");
 		return util.getJSONForObject(query.getResultList());
 	}
