@@ -19,9 +19,6 @@ public class Recipe {
 	@Column(length = 50)
 	private String recipeName;
 
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	private Classroom classroom;
-
 	// default constructor
 	public Recipe() {
 	}
