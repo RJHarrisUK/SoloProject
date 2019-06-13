@@ -41,8 +41,7 @@ public class IngredientServiceImpl implements IngredientService {
 
 	@Override
 	public String createIngredient(String ingredient) {
-		// TODO Auto-generated method stub
-		return null;
+		return ingredientRepo.createIngredient(ingredient);
 		}
 
 	@Override
