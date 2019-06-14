@@ -9,11 +9,11 @@ public interface IngredientRepository {
 	String getAllIngredients();
 	
 	//UPDATE
-	String updateIngredient(String ingredient, int id);
+	String updateIngredient(String ingredient, int ingredient_id);
 	
 	//DELETE
-	String deleteIngredient(int id);
+	String deleteIngredient(int ingredient_id);
 	
 	//READ2
-	String findIngredient(int id);
+	String findIngredient(int ingredient_id);
 }

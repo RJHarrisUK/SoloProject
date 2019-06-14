@@ -50,19 +50,17 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	@Override
-	public String updateIngredient(String ingredient, int id) {
-		// TODO Auto-generated method stub
+	public String updateIngredient(String ingredient, int ingredient_id) {
 		return null;
 	}
 
 	@Override
-	public String deleteIngredient(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String deleteIngredient(int ingredient_id) {
+		return ingredientRepo.deleteIngredient(ingredient_id);
 	}
 
 	@Override
-	public String findIngredient(int id) {
+	public String findIngredient(int ingredient_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

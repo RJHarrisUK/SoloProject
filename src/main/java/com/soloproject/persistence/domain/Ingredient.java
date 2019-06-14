@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+// this must be first letter capitalised
 @Table(name = "Ingredient")
 public class Ingredient {
 
