@@ -8,24 +8,7 @@ public class IngredientServiceImpl implements IngredientService {
 
 	@Inject
 	private IngredientRepository ingredientRepo;
-//
-//	// READ
-//	@Override
-//	public String getAllClassrooms() {
-//		return classRepo.getAllClassrooms();
-//	}
-//
-//	// CREATE
-//	@Override
-//	public String createClassroom(String classroom) {
-//		return classRepo.createClassroom(classroom);
-//	}
-//
-//	// DELETE
-//	@Override
-//	public String deleteClassroom(int id) {
-//		return classRepo.deleteClassroom(id);
-//	}
+
 //
 //	// UPDATE - unresolved
 //	@Override
@@ -33,11 +16,7 @@ public class IngredientServiceImpl implements IngredientService {
 //		return classRepo.updateClassroom(id, classroom);
 //	}
 //
-//	// READ2
-//	@Override
-//	public String findClassroom(int id) {
-//		return classRepo.findClassroom(id);
-//	}
+
 
 	@Override
 	public String createIngredient(String ingredient) {
@@ -60,9 +39,8 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	@Override
-	public String findIngredient(int ingredient_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String findIngredient(int ingredient_id) {		
+		return ingredientRepo.findIngredient(ingredient_id);
 	}
 
 }
