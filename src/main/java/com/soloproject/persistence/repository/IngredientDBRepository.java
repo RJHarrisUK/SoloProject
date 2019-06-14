@@ -44,24 +44,24 @@ public class IngredientDBRepository implements IngredientRepository {
 	// DELETE
 	@Override
 	@Transactional(REQUIRED)
-	public String deleteIngredient(int id) {
-		Ingredient deleteIngredient = manager.find(Ingredient.class, id);
+	public String deleteIngredient(int ingredient_id) {
+		Ingredient deleteIngredient = manager.find(Ingredient.class, ingredient_id);
 		
 		if (manager.contains(deleteIngredient)) {
 			manager.remove(deleteIngredient);
-			  return "{\"message\": \"Ingredient " + id +  " sucessfully deleted \"}";
+			  return "{\"message\": \"Ingredient " + ingredient_id +  " sucessfully deleted \"}";
 		}
-		return "{\"message\": \"No ingredient found with id " + id + ".\"}";
+		return "{\"message\": \"No ingredient found with id " + ingredient_id + ".\"}";
 	}
 
 	// UPDATE
 	@Override
 	@Transactional(REQUIRED)
-	public String updateIngredient(String ingredient, int id) {
+	public String updateIngredient(String ingredient, int ingredient_id) {
 		
 		Ingredient newIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 		
-		Ingredient oldIngredient = manager.find(Ingredient.class, id);
+		Ingredient oldIngredient = manager.find(Ingredient.class, ingredient_id);
 		
 		if (oldIngredient != null) {
 			
@@ -75,8 +75,8 @@ public class IngredientDBRepository implements IngredientRepository {
 	// READ2
 	@Override
 	@Transactional(REQUIRED)
-	public String findIngredient(int id) {
-		return util.getJSONForObject(manager.find(Ingredient.class, id));
+	public String findIngredient(int ingredient_id) {
+		return util.getJSONForObject(manager.find(Ingredient.class, ingredient_id));
 
 	}
 	
