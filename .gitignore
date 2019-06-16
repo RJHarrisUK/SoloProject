@@ -1,7 +1,1 @@
-.settings
-.settings
-target
-.classpath
-.factorypath
-.project
-bin
+/target/
