@@ -44,39 +44,43 @@ public class IngredientDBRepository implements IngredientRepository {
 	// DELETE
 	@Override
 	@Transactional(REQUIRED)
-	public String deleteIngredient(int ingredient_id) {
-		Ingredient deleteIngredient = manager.find(Ingredient.class, ingredient_id);
+	public String deleteIngredient(int ingredientId) {
+		Ingredient deleteIngredient = manager.find(Ingredient.class, ingredientId);
 		
 		if (manager.contains(deleteIngredient)) {
 			manager.remove(deleteIngredient);
-			  return "{\"message\": \"Ingredient " + ingredient_id +  " sucessfully deleted \"}";
+			  return "{\"message\": \"Ingredient " + ingredientId +  " sucessfully deleted \"}";
 		}
-		return "{\"message\": \"No ingredient found with id " + ingredient_id + ".\"}";
+		return "{\"message\": \"No ingredient found with id " + ingredientId + ".\"}";
 	}
 
 	// UPDATE
 	@Override
 	@Transactional(REQUIRED)
-	public String updateIngredient(String ingredient, int ingredient_id) {
+	public String updateIngredient(int ingredientId, String ingredient) {
 		
 		Ingredient newIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 		
-		Ingredient oldIngredient = manager.find(Ingredient.class, ingredient_id);
+		Ingredient oldIngredient = manager.find(Ingredient.class, ingredientId);
 		
 		if (oldIngredient != null) {
 			
-			oldIngredient.setIngredient_id(newIngredient.getIngredient_id());
+			oldIngredient.setIngredientName(newIngredient.getIngredientName());
+			oldIngredient.setCalories(newIngredient.getCalories());
+			oldIngredient.setTotalFat(newIngredient.getTotalFat());
+			oldIngredient.setTotalCarbs(newIngredient.getTotalCarbs());
+			oldIngredient.setProtein(newIngredient.getProtein());
 
 			manager.persist(oldIngredient);
 		}
-		return "{\"message\": \"Ingredient successfully updated\"}";
+		return "{\"message\": \"Ingredient " + ingredientId +  " successfully updated\"}";
 	}
 
 	// READ2
 	@Override
 	@Transactional(REQUIRED)
-	public String findIngredient(int ingredient_id) {
-		return util.getJSONForObject(manager.find(Ingredient.class, ingredient_id));
+	public String findIngredient(int ingredientId) {
+		return util.getJSONForObject(manager.find(Ingredient.class, ingredientId));
 
 	}
 	

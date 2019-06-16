@@ -16,15 +16,15 @@ public class Ingredient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(length = 5)
-	private int ingredient_id;
+	private int ingredientId;
 	@Column(length = 50)
-	private String  ingredient_name;
+	private String  ingredientName;
 	@Column(length = 50)
 	private int calories;
 	@Column(length = 50)
-	private int total_fat;
+	private int totalFat;
 	@Column(length = 50)
-	private int total_carbs;
+	private int totalCarbs;
 	@Column(length = 50)
 	private int protein;
 
@@ -33,12 +33,12 @@ public class Ingredient {
 	}
 
 	// getters and setters
-	public int getIngredient_id() {
-		return ingredient_id;
+	public int getIngredientId() {
+		return ingredientId;
 	}
 
-	public void setIngredient_id(int ingredient_id) {
-		this.ingredient_id = ingredient_id;
+	public void setIngredientId(int ingredientId) {
+		this.ingredientId = ingredientId;
 	}
 
 	public int getCalories() {
@@ -49,20 +49,20 @@ public class Ingredient {
 		this.calories = calories;
 	}
 
-	public float getTotal_fat() {
-		return total_fat;
+	public int getTotalFat() {
+		return totalFat;
 	}
 
-	public void setTotal_fat(int total_fat) {
-		this.total_fat = total_fat;
+	public void setTotalFat(int totalFat) {
+		this.totalFat = totalFat;
 	}
 
-	public int getTotal_carbs() {
-		return total_carbs;
+	public int getTotalCarbs() {
+		return totalCarbs;
 	}
 
-	public void setTotal_carbs(int total_carbs) {
-		this.total_carbs = total_carbs;
+	public void setTotalCarbs(int totalCarbs) {
+		this.totalCarbs = totalCarbs;
 	}
 
 	public int getProtein() {
@@ -73,12 +73,12 @@ public class Ingredient {
 		this.protein = protein;
 	}
 
-	public String getIngredient_name() {
-		return ingredient_name;
+	public String getIngredientName() {
+		return ingredientName;
 	}
 
-	public void setIngredient_name(String ingredient_name) {
-		this.ingredient_name = ingredient_name;
+	public void setIngredientName(String ingredientName) {
+		this.ingredientName = ingredientName;
 	}
 
 }

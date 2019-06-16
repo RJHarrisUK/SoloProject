@@ -9,15 +9,6 @@ public class IngredientServiceImpl implements IngredientService {
 	@Inject
 	private IngredientRepository ingredientRepo;
 
-//
-//	// UPDATE - unresolved
-//	@Override
-//	public String updateClassroom(String classroom, int id) {
-//		return classRepo.updateClassroom(id, classroom);
-//	}
-//
-
-
 	@Override
 	public String createIngredient(String ingredient) {
 		return ingredientRepo.createIngredient(ingredient);
@@ -29,18 +20,18 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	@Override
-	public String updateIngredient(String ingredient, int ingredient_id) {
-		return null;
+	public String updateIngredient(String ingredient, int ingredientId) {
+		return ingredientRepo.updateIngredient(ingredientId, ingredient);
 	}
 
 	@Override
-	public String deleteIngredient(int ingredient_id) {
-		return ingredientRepo.deleteIngredient(ingredient_id);
+	public String deleteIngredient(int ingredientId) {
+		return ingredientRepo.deleteIngredient(ingredientId);
 	}
 
 	@Override
-	public String findIngredient(int ingredient_id) {		
-		return ingredientRepo.findIngredient(ingredient_id);
+	public String findIngredient(int ingredientId) {		
+		return ingredientRepo.findIngredient(ingredientId);
 	}
 
 }
