@@ -9,11 +9,11 @@ public interface IngredientService {
 	String getAllIngredients();
 	
 	//UPDATE
-	String updateIngredient(String ingredient, int ingredient_id);
+	String updateIngredient(String ingredient, int ingredientId);
 	
 	//DELETE
-	String deleteIngredient(int ingredient_id);
+	String deleteIngredient(int ingredientId);
 	
 	//READ2
-	String findIngredient(int ingredient_id);
+	String findIngredient(int ingredientId);
 }

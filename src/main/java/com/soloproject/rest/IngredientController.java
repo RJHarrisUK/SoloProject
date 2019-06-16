@@ -37,23 +37,23 @@ public class IngredientController {
 	@Path("/deleteIngredient/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteIngredient(@PathParam("id") int ingredient_id) {
-		return service.deleteIngredient(ingredient_id);
+	public String deleteIngredient(@PathParam("id") int ingredientId) {
+		return service.deleteIngredient(ingredientId);
 	}
 
 	// UPDATE
 	@Path("/updateIngredient/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateIngredient(@PathParam("id") int ingredient_id, String ingredient) {
-		return service.updateIngredient(ingredient, ingredient_id);
+	public String updateIngredient(@PathParam("id") int ingredientId, String ingredient) {
+		return service.updateIngredient(ingredient, ingredientId);
 	}
 
 	// READ
 	@Path("/findIngredient/{id}")
 	@GET
 	@Produces({ "application/json" })
-	public String findIngredient(@PathParam("id") int ingredient_id) {
-		return service.findIngredient(ingredient_id);
+	public String findIngredient(@PathParam("id") int ingredientId) {
+		return service.findIngredient(ingredientId);
 	}
 }

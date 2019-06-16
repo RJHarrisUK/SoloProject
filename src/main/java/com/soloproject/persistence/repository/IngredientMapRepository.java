@@ -26,24 +26,24 @@ public class IngredientMapRepository implements IngredientRepository {
 	@Override
 	public String createIngredient(String ingredient) {
 		newIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
-		ingredientMap.put(newIngredient.getIngredient_id(), newIngredient);
+		ingredientMap.put(newIngredient.getIngredientId(), newIngredient);
 		return "Ingredient successfully created";
 	}
 
 	// DELETE
 	@Override
-	public String deleteIngredient(int ingredient_id) {
-		ingredientMap.remove(ingredient_id);
+	public String deleteIngredient(int ingredientId) {
+		ingredientMap.remove(ingredientId);
 		return "Ingredient successfully deleted";
 	}
 
 	// UPDATE
 	@Override
-	public String updateIngredient(String ingredient, int ingredient_id) {
+	public String updateIngredient(int ingredientId, String ingredient) {
 		Ingredient upIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 		
-		if (ingredientMap.containsKey(ingredient_id)) {
-			ingredientMap.replace(ingredient_id, upIngredient);
+		if (ingredientMap.containsKey(ingredientId)) {
+			ingredientMap.replace(ingredientId, upIngredient);
 			return "Classroom added" + util.getJSONForObject(ingredientMap.values());
 		}
 		return "Cannot update this classroom.";
@@ -51,7 +51,7 @@ public class IngredientMapRepository implements IngredientRepository {
 
 	// READ2
 	@Override
-	public String findIngredient(int ingredient_id) {
-		return util.getJSONForObject(ingredientMap.get(ingredient_id));
+	public String findIngredient(int ingredientId) {
+		return util.getJSONForObject(ingredientMap.get(ingredientId));
 	}
 	}
