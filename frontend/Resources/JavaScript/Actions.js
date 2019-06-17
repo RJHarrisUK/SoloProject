@@ -1,6 +1,6 @@
 // Javascript File for SoloProject
 
-// get result function
+// READ - get result function
 function showAllIngredients() {
 
     // remove any rows already on table before new search
@@ -46,16 +46,26 @@ function showAllIngredients() {
     req.open("GET", "http://localhost:8080/SoloProject/nutrition/ingredients/getAllIngredients");
     req.send();
 }
-// function addIngredient() {
 
-//     // http request
-//     let req = new XMLHttpRequest();
+// CREATE - add ingredient function
+function addIngredient() {
 
-//     req.onload = function () {
-//         let response = JSON.parse(req.response);
+    // http request
+    let ingredient = {
+        "ingredientName": document.getElementById("ingredientNameBox").value,
+        "calories": document.getElementById("caloriesBox").value,
+        "totalFat": document.getElementById("fatBox").value,
+        "totalCarbs": document.getElementById("carbsBox").value,
+        "protein": document.getElementById("proteinBox").value
+    }
 
-//         // testing the response is correct in console
-//         console.log(response.Search);
-//     }
-//     req.open("POST", "http://localhost:8080/SoloProject/nutrition/ingredients/createIngredient");
-// }
+    let req = new XMLHttpRequest();
+
+    req.onload = function () {
+        let response = JSON.parse(req.response);
+        console.log(response);
+
+    }
+    req.open("POST", "http://localhost:8080/SoloProject/nutrition/ingredients/createIngredient");
+    req.send(JSON.stringify(ingredient));
+}
