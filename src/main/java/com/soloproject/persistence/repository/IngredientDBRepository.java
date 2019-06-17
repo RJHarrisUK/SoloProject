@@ -38,7 +38,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	public String createIngredient(String ingredient) {
 		Ingredient anIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 		manager.persist(anIngredient);
-		return "{\"message\": \"ingredient has been successfully added\"}";
+		return "{\"message\": \"Ingredient has been successfully added\"}";
 	}
 
 	// DELETE
@@ -49,7 +49,7 @@ public class IngredientDBRepository implements IngredientRepository {
 		
 		if (manager.contains(deleteIngredient)) {
 			manager.remove(deleteIngredient);
-			  return "{\"message\": \"Ingredient " + ingredientId +  " sucessfully deleted \"}";
+			  return "{\"message\": \"Ingredient " + ingredientId +  " sucessfully deleted\"}";
 		}
 		return "{\"message\": \"No ingredient found with id " + ingredientId + ".\"}";
 	}

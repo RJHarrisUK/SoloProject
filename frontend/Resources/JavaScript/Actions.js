@@ -51,7 +51,7 @@ function showAllIngredients() {
 // CREATE - add ingredient function
 function addIngredient() {
 
-    // http request
+    // set ingredient object as inputs
     let ingredient = {
         "ingredientName": document.getElementById("ingredientNameBox").value,
         "calories": document.getElementById("caloriesBox").value,
