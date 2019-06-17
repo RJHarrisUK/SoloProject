@@ -8,7 +8,6 @@ import javax.persistence.Query;
 
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -34,10 +33,10 @@ public class IngredientDBRepositoryTest {
 
 	private JSONUtil util;
 
+	// CONSTANTS for testing
+	private static final String MOCK_DATA_ARRAY = "[{\"ingredientId\":8,\"ingredientName\":\"Eggs\",\"calories\":300,\"totalFat\":19,\"totalCarbs\":21,\"protein\":25}]";
 
-	private static final String MOCK_DATA_ARRAY = "[{\"title\":\"Alien\",\"ageRating\":\"15\"}]";
-
-	private static final String MOCK_OBJECT = "{\"title\":\"Alien\",\"ageRating\":\"15\"}";
+	private static final String MOCK_OBJECT = "{\"ingredientId\":\"8\",\"ingredientName\":\"Eggs\",\"calories\":\"300\",\"totalFat\":\"19\",\"totalCarbs\":\"21\",\"protein\":\"25\"}";
 
 	@Before
 	public void setup() {
@@ -47,36 +46,47 @@ public class IngredientDBRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllMovies() {
+	public void testGetAllIngredients() {
 		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
-		List<Movie> movies = new ArrayList<Movie>();
-		movies.add(new Movie("Alien", "15"));
-		Mockito.when(query.getResultList()).thenReturn(movies);
-		System.out.println(repo.getAllMovies());
-		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllMovies());
+		List<Ingredient> Ingredients = new ArrayList<Ingredient>();
+		Ingredients.add(new Ingredient(8, "Eggs", 300, 19, 21, 25));
+		Mockito.when(query.getResultList()).thenReturn(Ingredients);
+		System.out.println(repo.getAllIngredients());
+		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllIngredients());
 	}
 
 	@Test
-	public void testCyclemovies() {
-
-		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
-		List<Movie> movies = new ArrayList<Movie>();
-		movies.add(new Movie("Alien", "15"));
-		Mockito.when(query.getResultList()).thenReturn(movies);
-		Assert.assertEquals(1, repo.cycleMovies("Alien"));
-
+	public void testCreateIngredient() {
+		String reply = repo.createIngredient(MOCK_OBJECT);
+		Assert.assertEquals(reply, "{\"message\": \"Ingredient has been successfully added\"}");
 	}
 
 	@Test
-	public void testCreateMovie() {
-		String reply = repo.createMovie(MOCK_OBJECT);
-		Assert.assertEquals(reply, "{\"message\": \"movie has been sucessfully added\"}");
+	public void testDeleteIngredient() {
+		
+		Ingredient tempIng = new Ingredient();
+		
+		Mockito.when(manager.find(Ingredient.class,1)).thenReturn(tempIng);
+		
+		Mockito.when(manager.contains(tempIng)).thenReturn(true);
+		
+				String reply = repo.deleteIngredient(1);
+		Assert.assertEquals( "{\"message\": \"Ingredient 1 successfully deleted\"}", reply);
 	}
-
+	
 	@Test
-	public void testDeleteMovie() {
-		String reply = repo.deleteMovie(1L);
-		Assert.assertEquals(reply, "{\"message\": \"movie successfully deleted\"}");
+	public void testDeleteIngredient2() {
+		
+		Ingredient tempIng = new Ingredient();
+		
+		Mockito.when(manager.find(Ingredient.class,1)).thenReturn(tempIng);
+		
+		//if the ingredient doesn't exist
+		
+		Mockito.when(manager.contains(tempIng)).thenReturn(false);
+		
+				String reply = repo.deleteIngredient(1);
+		Assert.assertEquals( "{\"message\": \"No ingredient found with id 1.\"}", reply);
 	}
 
 }
