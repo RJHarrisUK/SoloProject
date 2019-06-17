@@ -82,6 +82,7 @@ function deleteIngredient(id) {
     req.send();
 
     console.log(req);
+    showAllIngredients();
 }
 
 // UPDATE - update ingredient function
