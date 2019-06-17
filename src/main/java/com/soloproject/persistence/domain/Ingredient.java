@@ -31,7 +31,19 @@ public class Ingredient {
 	// default constructor
 	public Ingredient() {
 	}
-
+	
+	// constructor for other uses
+	public Ingredient(int ingredientId, String ingredientName, int calories, int totalFat, int totalCarbs,
+			int protein) {
+		super();
+		this.ingredientId = ingredientId;
+		this.ingredientName = ingredientName;
+		this.calories = calories;
+		this.totalFat = totalFat;
+		this.totalCarbs = totalCarbs;
+		this.protein = protein;
+	}
+	
 	// getters and setters
 	public int getIngredientId() {
 		return ingredientId;

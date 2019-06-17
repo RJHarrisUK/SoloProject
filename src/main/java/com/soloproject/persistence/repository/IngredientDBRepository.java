@@ -3,6 +3,8 @@ package com.soloproject.persistence.repository;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
+import java.util.Collection;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -27,9 +29,10 @@ public class IngredientDBRepository implements IngredientRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String getAllIngredients() {
-		// Ingredient must be first letter capitalised
+		// Ingredient must be first letter capitalised in JDBL
 		Query query = manager.createQuery("SELECT a from Ingredient a");
-		return util.getJSONForObject(query.getResultList());
+		Collection<Ingredient> Ingredients =  (Collection<Ingredient>) query.getResultList();
+		return util.getJSONForObject(Ingredients);
 	}
 
 	// CREATE
@@ -38,7 +41,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	public String createIngredient(String ingredient) {
 		Ingredient anIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 		manager.persist(anIngredient);
-		return "{\"message\": \"ingredient has been successfully added\"}";
+		return "{\"message\": \"Ingredient has been successfully added\"}";
 	}
 
 	// DELETE
@@ -49,7 +52,7 @@ public class IngredientDBRepository implements IngredientRepository {
 		
 		if (manager.contains(deleteIngredient)) {
 			manager.remove(deleteIngredient);
-			  return "{\"message\": \"Ingredient " + ingredientId +  " sucessfully deleted \"}";
+			  return "{\"message\": \"Ingredient " + ingredientId +  " successfully deleted\"}";
 		}
 		return "{\"message\": \"No ingredient found with id " + ingredientId + ".\"}";
 	}
@@ -83,6 +86,12 @@ public class IngredientDBRepository implements IngredientRepository {
 		return util.getJSONForObject(manager.find(Ingredient.class, ingredientId));
 
 	}
-	
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
+	}
 
 }
