@@ -3,6 +3,17 @@
 // get result function
 function showAllIngredients() {
 
+    // remove any rows already on table before new search
+    const container = document.getElementById('table');
+
+    if (container.rows.length > 1) {
+
+        let tableSize = container.rows.length;
+        for (i = tableSize; i > 1; i--) {
+            container.deleteRow(i - 1);
+        }
+    }
+
     // http request
     let req = new XMLHttpRequest();
 
@@ -35,16 +46,16 @@ function showAllIngredients() {
     req.open("GET", "http://localhost:8080/SoloProject/nutrition/ingredients/getAllIngredients");
     req.send();
 }
-    // function addIngredient() {
+// function addIngredient() {
 
-    //     // http request
-    //     let req = new XMLHttpRequest();
+//     // http request
+//     let req = new XMLHttpRequest();
 
-    //     req.onload = function () {
-    //         let response = JSON.parse(req.response);
+//     req.onload = function () {
+//         let response = JSON.parse(req.response);
 
-    //         // testing the response is correct in console
-    //         console.log(response.Search);
-    //     }
-    //     req.open("GET", "http://localhost:8080/SoloProject/nutrition/ingredients/createIngredient");
-    // }
+//         // testing the response is correct in console
+//         console.log(response.Search);
+//     }
+//     req.open("POST", "http://localhost:8080/SoloProject/nutrition/ingredients/createIngredient");
+// }
