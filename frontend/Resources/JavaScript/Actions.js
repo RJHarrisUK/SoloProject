@@ -31,12 +31,12 @@ function showAllIngredients() {
         let len = response.length;
         for (var i = 0; i < len; i++) {
 
-            tableBuild = '<tr><td>' + response[i].ingredientId
-                + '</td><td>' + response[i].ingredientName
+            tableBuild = '<tr><td>' + response[i].ingredientName
                 + '</td><td>' + response[i].calories
                 + '</td><td>' + response[i].protein
                 + '</td><td>' + response[i].totalCarbs
                 + '</td><td>' + response[i].totalFat
+                + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="updateIngredient()">Update</button>'
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
                 + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="moreDetails()">More Details</button>'
                 + '</tr>'
