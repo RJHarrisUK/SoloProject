@@ -31,6 +31,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	public String getAllIngredients() {
 		// Ingredient must be first letter capitalised in JDBL
 		Query query = manager.createQuery("SELECT a from Ingredient a");
+		@SuppressWarnings("unchecked")
 		Collection<Ingredient> Ingredients =  (Collection<Ingredient>) query.getResultList();
 		return util.getJSONForObject(Ingredients);
 	}
