@@ -22,7 +22,7 @@ function showAllIngredients() {
 
         // testing the response is correct in console
         console.log(response);
-        console.log(response[1].ingredientName);
+        console.log(response[0].ingredientName);
 
         // // setting up table variables
         let tableBuild = null;
@@ -37,6 +37,7 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].protein
                 + '</td><td>' + response[i].totalCarbs
                 + '</td><td>' + response[i].totalFat
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
                 + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="moreDetails()">More Details</button>'
                 + '</tr>'
             $("table").append(tableBuild);
@@ -68,4 +69,19 @@ function addIngredient() {
     }
     req.open("POST", "http://localhost:8080/SoloProject/nutrition/ingredients/createIngredient");
     req.send(JSON.stringify(ingredient));
+}
+
+// DELETE - add ingredient function
+function deleteIngredient(id) {
+    let req = new XMLHttpRequest();
+
+
+    req.onload = function () {
+        let response = JSON.parse(req.responseText);
+        console.log(response);
+    }
+    req.open("DELETE", "http://localhost:8080/SoloProject/nutrition/ingredients/deleteIngredient/" + id);
+    req.send();
+
+    console.log(req);
 }
