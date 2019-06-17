@@ -51,7 +51,6 @@ public class IngredientDBRepositoryTest {
 		List<Ingredient> Ingredients = new ArrayList<Ingredient>();
 		Ingredients.add(new Ingredient(8, "Eggs", 300, 19, 21, 25));
 		Mockito.when(query.getResultList()).thenReturn(Ingredients);
-		System.out.println(repo.getAllIngredients());
 		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllIngredients());
 	}
 

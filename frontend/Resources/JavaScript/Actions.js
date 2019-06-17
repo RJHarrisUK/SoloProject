@@ -36,9 +36,9 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].protein
                 + '</td><td>' + response[i].totalCarbs
                 + '</td><td>' + response[i].totalFat
-                + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="updateIngredient()">Update</button>'
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalTwo">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
-                + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="moreDetails()">More Details</button>'
+                // + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="moreDetails()">More Details</button>'
                 + '</tr>'
             $("table").append(tableBuild);
         }
@@ -84,4 +84,27 @@ function deleteIngredient(id) {
     req.send();
 
     console.log(req);
+}
+
+// UPDATE - update ingredient function
+function updateIngredient(updateId) {
+
+    // set ingredient object as inputs
+    let ingredient = {
+        "ingredientName": document.getElementById("ingredientNameBox").value,
+        "calories": document.getElementById("caloriesBox").value,
+        "totalFat": document.getElementById("fatBox").value,
+        "totalCarbs": document.getElementById("carbsBox").value,
+        "protein": document.getElementById("proteinBox").value
+    }
+
+    let req = new XMLHttpRequest();
+
+    req.onload = function () {
+        let response = JSON.parse(req.response);
+        console.log(response);
+
+    }
+    req.open("PUT", "http://localhost:8080/SoloProject/nutrition/ingredients/updateIngredient" + updateId);
+    req.send(JSON.stringify(ingredient));
 }

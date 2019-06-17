@@ -74,6 +74,58 @@
             </div>
         </div>
 
+        <!-- Update Ingredient Modal Box -->
+        <div class="modal fade" id="ModalTwo" tabindex="-1" role="dialog" aria-labelledby="ModalLabelTwo"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="UpdateModalLabel">Update Ingredient</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Ingredient Name Input Box -->
+                        <div class="form-group">
+                            <label for="IngredientNameBox"></label>
+                            <input type="text" class="form-control" id="updateIngredientNameBox"
+                                aria-describedby="ingredientNameBox" placeholder="Ingredient Name">
+                        </div>
+                        <!-- Calories Input Box -->
+                        <div class="form-group">
+                            <label for="CaloriesBox"></label>
+                            <input type="text" class="form-control" id="updateCaloriesBox"
+                                aria-describedby="updateCaloriesBox" placeholder="Calories / 100g">
+                        </div>
+                        <!-- Protein Input Box -->
+                        <div class="form-group">
+                            <label for="ProteinBox"></label>
+                            <input type="text" class="form-control" id="updateProteinBox"
+                                aria-describedby="updateProteinBox" placeholder="Protein / 100g">
+                        </div>
+                        <!-- Carbs Input Box -->
+                        <div class="form-group">
+                            <label for="CarbsBox"></label>
+                            <input type="text" class="form-control" id="updateCarbsBox"
+                                aria-describedby="updateCarbsBox" placeholder="Carbs / 100g">
+                        </div>
+                        <!-- Fat Input Box -->
+                        <div class="form-group">
+                            <label for="FatBox"></label>
+                            <input type="text" class="form-control" id="updateFatBox" aria-describedby="updateFatBox"
+                                placeholder="Fat / 100g">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="updateIngredient()">Update
+                            Ingredient</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Results Table -->
         <table class="table table-striped table-dark" id="table">
             <thead>
@@ -85,7 +137,7 @@
                     <th scope="col">Fat</th>
                     <th scope="col">Update</th>
                     <th scope="col">Delete</th>
-                    <th scope="col">More Detail</th>
+                    <!-- <th scope="col">More Detail</th> -->
                 </tr>
             </thead>
 
