@@ -52,7 +52,7 @@ public class IngredientDBRepositoryTest {
 		Ingredients.add(new Ingredient(8, "Eggs", 300, 19, 21, 25));
 		Mockito.when(query.getResultList()).thenReturn(Ingredients);
 		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllIngredients());
-	}
+	} 
 
 	@Test
 	public void testCreateIngredient() {

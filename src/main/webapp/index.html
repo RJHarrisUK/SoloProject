@@ -76,7 +76,7 @@
 
         <!-- Update Ingredient Modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
-            Add Ingredient
+            Update Ingredient
         </button>
 
         <!-- Add Ingredient Modal Box -->
@@ -123,9 +123,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            onclick="unSetUpdateID();clearUpdateModal();">Close</button>
                         <!-- TODO - UPDATE INGREDIENT SEND -->
-                        <button type="button" class="btn btn-primary" onclick="addIngredient()">Add Ingredient</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                            onclick="updateIngredient()">Update
+                            Ingredient</button>
                     </div>
                 </div>
             </div>
