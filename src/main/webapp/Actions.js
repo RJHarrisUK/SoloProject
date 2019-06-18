@@ -37,7 +37,7 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].protein
                 + '</td><td>' + response[i].totalCarbs
                 + '</td><td>' + response[i].totalFat
-                + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="updateIngredient(${response[i].ingredientId})">Update</button>`
+                + '</td><td>' + `<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
                 // + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="moreDetails()">More Details</button>'
                 + '</tr>'
@@ -50,7 +50,14 @@ function showAllIngredients() {
     req.send();
 }
 
+let updateID = 0;
 
+function unSetUpdateID() {
+    updateID = 0;
+}
+function setUpdateID(id) {
+    updateID = id;
+}
 // CREATE - add ingredient function
 function addIngredient() {
 
@@ -93,8 +100,8 @@ function deleteIngredient(id) {
     showAllIngredients();
 }
 
-// UPDATE - update ingredient function
-function updateIngredient(updateId) {
+// UPDATE PART 2: THE UPDATE STRIKES BACK - update ingredient function http request
+function updateIngredient() {
 
     // set ingredient object as inputs
     let ingredient2 = {
@@ -110,9 +117,29 @@ function updateIngredient(updateId) {
     req.onload = function () {
         let response = JSON.parse(req.response);
         console.log(response);
-
+        showAllIngredients();
+        clearUpdateModal();
     }
-    req.open("PUT", "http://localhost:8080/SoloProject/nutrition/ingredients/updateIngredient/" + updateId);
+    req.open("PUT", "http://localhost:8080/SoloProject/nutrition/ingredients/updateIngredient/" + updateID);
     req.send(JSON.stringify(ingredient2));
-    showAllIngredients();
+}
+
+function clearUpdateModal() {
+    for (let i of $("#updateModal input")) {
+        i.value = ""
+    }
+}
+
+// UPDATE PART 1 - update ingredient button - open modal and save id number
+function updateIngredientModal(updateId) {
+
+    // set ingredient object as inputs
+    let ingredient2 = {
+        "ingredientName": document.getElementById("updateingredientNameBox").value,
+        "calories": document.getElementById("updatecaloriesBox").value,
+        "totalFat": document.getElementById("updatefatBox").value,
+        "totalCarbs": document.getElementById("updatecarbsBox").value,
+        "protein": document.getElementById("updateproteinBox").value
+    }
+
 }
