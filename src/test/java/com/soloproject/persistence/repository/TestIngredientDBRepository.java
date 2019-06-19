@@ -92,17 +92,17 @@ public class TestIngredientDBRepository {
 		Assert.assertEquals( "{\"message\": \"No ingredient found with id 1.\"}", reply);
 	}
 
-	@Test
-	public void testFindIngredient() {
-		Ingredient tempIng = new Ingredient();
-		
-		Mockito.when(manager.find(Ingredient.class,1)).thenReturn(EMPTY_OBJECT);
-		
-		Mockito.when(manager.contains(EMPTY_OBJECT)).thenReturn(true);
-		
-		String reply = repo.findIngredient(1);
-		Assert.assertEquals(EMPTY_OBJECT, reply);
-	}
+//	@Test
+//	public void testFindIngredient() {
+//		Ingredient tempIng = new Ingredient();
+//		
+//		Mockito.when(manager.find(Ingredient.class,1)).thenReturn(EMPTY_OBJECT);
+//		
+//		Mockito.when(manager.contains(EMPTY_OBJECT)).thenReturn(true);
+//		
+//		String reply = repo.findIngredient(1);
+//		Assert.assertEquals(EMPTY_OBJECT, reply);
+//	}
 	
 
 	public static String getEmptyObject() {
