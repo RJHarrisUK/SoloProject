@@ -3,7 +3,7 @@
 const GCP = "http://34.77.187.248:8888"
 const LOCAL = "http://localhost:8080"
 
-// READ - get result function
+// READ - get all ingredients function
 function showAllIngredients() {
 
     // remove any rows already on table before new search
@@ -16,8 +16,6 @@ function showAllIngredients() {
             container.deleteRow(i - 1);
         }
     }
-
-    // http request
     let req = new XMLHttpRequest();
 
     req.onload = function () {
@@ -40,7 +38,7 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].protein
                 + '</td><td>' + response[i].totalCarbs
                 + '</td><td>' + response[i].totalFat
-                + '</td><td>' + `<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
                 + '</tr>'
             response[i].ingredientId
