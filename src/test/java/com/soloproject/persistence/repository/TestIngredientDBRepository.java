@@ -1,3 +1,4 @@
+
 package com.soloproject.persistence.repository;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import com.soloproject.persistence.repository.IngredientDBRepository;
 import com.soloproject.util.JSONUtil;
 
 @RunWith(MockitoJUnitRunner.class)
-public class IngredientDBRepositoryTest {
+public class TestIngredientDBRepository {
 
 	@InjectMocks
 	private IngredientDBRepository repo;
@@ -38,6 +39,9 @@ public class IngredientDBRepositoryTest {
 
 	private static final String MOCK_OBJECT = "{\"ingredientId\":\"8\",\"ingredientName\":\"Eggs\",\"calories\":\"300\",\"totalFat\":\"19\",\"totalCarbs\":\"21\",\"protein\":\"25\"}";
 
+	private static final String EMPTY_OBJECT = "{\"ingredientId\":\"8\",\"ingredientName\":\"0\",\"calories\":\"0\",\"totalFat\":\"0\",\"totalCarbs\":\"0\",\"protein\":\"0\"}";
+
+	
 	@Before
 	public void setup() {
 		repo.setManager(manager);
@@ -88,4 +92,20 @@ public class IngredientDBRepositoryTest {
 		Assert.assertEquals( "{\"message\": \"No ingredient found with id 1.\"}", reply);
 	}
 
+	@Test
+	public void testFindIngredient() {
+		Ingredient tempIng = new Ingredient();
+		
+		Mockito.when(manager.find(Ingredient.class,1)).thenReturn(EMPTY_OBJECT);
+		
+		Mockito.when(manager.contains(EMPTY_OBJECT)).thenReturn(true);
+		
+		String reply = repo.findIngredient(1);
+		Assert.assertEquals(EMPTY_OBJECT, reply);
+	}
+	
+
+	public static String getEmptyObject() {
+		return EMPTY_OBJECT;
+	}
 }
