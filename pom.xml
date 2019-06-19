@@ -243,12 +243,12 @@
            <excludes>
              <exclude>com.qa.rest.JAXActivator</exclude>
            </excludes>
-           <limits>
-             <limit>
+          <limits>
+             <!--  <limit>
                <counter>LINE</counter>
                <value>COVEREDRATIO</value>
                <minimum>80%</minimum>
-             </limit>
+             </limit> -->
            </limits>
          </rule>
        </rules>
