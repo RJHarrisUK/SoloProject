@@ -1,9 +1,9 @@
 package com.soloproject.persistence.repository;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
 
 import com.soloproject.persistence.domain.Ingredient;
 import com.soloproject.util.JSONUtil;
@@ -11,11 +11,15 @@ import com.soloproject.util.JSONUtil;
 @Alternative
 public class IngredientMapRepository implements IngredientRepository {
 
-	@Inject
-	JSONUtil util;
-	Map<Integer, Ingredient> ingredientMap;
-	Ingredient newIngredient;
-	
+	private JSONUtil util;
+	private Map<Integer, Ingredient> ingredientMap;
+	private Ingredient newIngredient;
+
+	public IngredientMapRepository() {
+		this.ingredientMap = new HashMap<Integer, Ingredient>();
+		util = new JSONUtil();
+	}
+
 	// READ
 	@Override
 	public String getAllIngredients() {
@@ -41,7 +45,7 @@ public class IngredientMapRepository implements IngredientRepository {
 	@Override
 	public String updateIngredient(int ingredientId, String ingredient) {
 		Ingredient upIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
-		
+
 		if (ingredientMap.containsKey(ingredientId)) {
 			ingredientMap.replace(ingredientId, upIngredient);
 			return "Classroom added" + util.getJSONForObject(ingredientMap.values());
@@ -54,4 +58,13 @@ public class IngredientMapRepository implements IngredientRepository {
 	public String findIngredient(int ingredientId) {
 		return util.getJSONForObject(ingredientMap.get(ingredientId));
 	}
+
+	// getters and setters
+	public Map<Integer, Ingredient> getIngredientMap() {
+		return ingredientMap;
 	}
+
+	public void setIngredientMap(Map<Integer, Ingredient> ingredientMap) {
+		this.ingredientMap = ingredientMap;
+	}
+}
