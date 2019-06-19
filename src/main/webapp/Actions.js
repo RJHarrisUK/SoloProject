@@ -1,5 +1,8 @@
 // Javascript File for SoloProject
 
+const GCP = "http://34.77.187.248:8888"
+const LOCAL = "http://localhost:8080"
+
 // READ - get result function
 function showAllIngredients() {
 
@@ -39,14 +42,13 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].totalFat
                 + '</td><td>' + `<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
-                // + '</td><td>' + '<button type="button" class="btn btn-secondary" onclick="moreDetails()">More Details</button>'
                 + '</tr>'
             response[i].ingredientId
             $("table").append(tableBuild);
         }
 
     }
-    req.open("GET", "http://localhost:8080/SoloProject/nutrition/ingredients/getAllIngredients");
+    req.open("GET", GCP + "/SoloProject/nutrition/ingredients/getAllIngredients");
     req.send();
 }
 
@@ -77,7 +79,7 @@ function addIngredient() {
         console.log(response);
 
     }
-    req.open("POST", "http://localhost:8080/SoloProject/nutrition/ingredients/createIngredient");
+    req.open("POST", "/SoloProject/nutrition/ingredients/createIngredient");
     req.send(JSON.stringify(ingredient));
     $('#exampleModal').modal('hide');
     showAllIngredients();
@@ -92,7 +94,7 @@ function deleteIngredient(id) {
         let response = JSON.parse(req.responseText);
         console.log(response);
     }
-    req.open("DELETE", "http://localhost:8080/SoloProject/nutrition/ingredients/deleteIngredient/" + id);
+    req.open("DELETE", GCP + "/SoloProject/nutrition/ingredients/deleteIngredient/" + id);
     req.send();
 
     console.log(req);
@@ -120,7 +122,7 @@ function updateIngredient() {
         showAllIngredients();
         clearUpdateModal();
     }
-    req.open("PUT", "http://localhost:8080/SoloProject/nutrition/ingredients/updateIngredient/" + updateID);
+    req.open("PUT", GCP + "/SoloProject/nutrition/ingredients/updateIngredient/" + updateID);
     req.send(JSON.stringify(ingredient2));
 }
 
