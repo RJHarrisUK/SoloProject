@@ -17,7 +17,6 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.soloproject.persistence.domain.Ingredient;
-import com.soloproject.persistence.repository.IngredientDBRepository;
 import com.soloproject.util.JSONUtil;
 import com.soloproject.util.TestConstants;
 
@@ -33,7 +32,7 @@ public class TestIngredientDBRepository {
 	@Mock
 	private Query query;
 
-	private JSONUtil util;	
+	private JSONUtil util;
 
 	private static final List<Ingredient> INGREDIENTS = new ArrayList<Ingredient>();
 
@@ -53,7 +52,6 @@ public class TestIngredientDBRepository {
 		INGREDIENTS.add(new Ingredient(2, "miso", 875, 92, 34, 57));
 
 		Mockito.when(query.getResultList()).thenReturn(INGREDIENTS);
-
 		Assert.assertEquals(TestConstants.MOCK_JSON_ARRAY, repo.getAllIngredients());
 	}
 
@@ -61,7 +59,6 @@ public class TestIngredientDBRepository {
 	public void testCreateIngredient() {
 
 		String reply = repo.createIngredient(TestConstants.MOCK_JSON_OBJECT);
-
 		Assert.assertEquals(reply, "{\"message\": \"Ingredient has been successfully added\"}");
 	}
 
@@ -69,13 +66,10 @@ public class TestIngredientDBRepository {
 	public void testDeleteIngredient() {
 
 		Ingredient tempIng = new Ingredient();
-
+		
 		Mockito.when(manager.find(Ingredient.class, 1)).thenReturn(tempIng);
-
 		Mockito.when(manager.contains(tempIng)).thenReturn(true);
-
 		String reply = repo.deleteIngredient(1);
-
 		Assert.assertEquals("{\"message\": \"Ingredient 1 successfully deleted\"}", reply);
 	}
 
@@ -83,15 +77,13 @@ public class TestIngredientDBRepository {
 	public void testDeleteIngredient2() {
 
 		Ingredient tempIng = new Ingredient();
-
+		
 		Mockito.when(manager.find(Ingredient.class, 1)).thenReturn(tempIng);
 
 		// if the ingredient doesn't exist
 
 		Mockito.when(manager.contains(tempIng)).thenReturn(false);
-
 		String reply = repo.deleteIngredient(1);
-
 		Assert.assertEquals("{\"message\": \"No ingredient found with id 1.\"}", reply);
 	}
 
@@ -99,9 +91,7 @@ public class TestIngredientDBRepository {
 	public void testFindIngredient() {
 
 		Mockito.when(manager.find(Ingredient.class, 1)).thenReturn(INGREDIENTS.get(0));
-
 		String reply = repo.findIngredient(1);
-
 		Assert.assertEquals(TestConstants.MOCK_JSON_OBJECT, reply);
 	}
 

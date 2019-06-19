@@ -2,28 +2,21 @@ package com.soloproject.persistence.repository;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import com.soloproject.util.JSONUtil;
 import com.soloproject.util.TestConstants;
 
 public class TestIngredientMapRepository {
-	
-	private static IngredientMapRepository imr = new IngredientMapRepository();
-	private JSONUtil jsonUtil = new JSONUtil();
 
-//	@Before
-//	public  void setup() {
-////		imr = new IngredientMapRepository();
-//	}
-//	 READ (All)
+	private static IngredientMapRepository imr = new IngredientMapRepository();
+
+	// READ (All)
 	@Test
 	public void getAllIngredientsTest() {
 		assertEquals(TestConstants.MOCK_JSON_ARRAY, imr.getAllIngredients());
 	}
 
-	//	READ (Specific)
+	// READ (Specific)
 	@Test
 	public void getIngredientTest() {
 		imr.getIngredientMap().put(1, TestConstants.TEST_JAVA_OBJECT);
@@ -38,16 +31,16 @@ public class TestIngredientMapRepository {
 		assertEquals(TestConstants.MOCK_JSON_OBJECT_2, imr.findIngredient(2));
 	}
 
-// READ (Empty map)
+	// READ (Empty map)
 	@Test
 	public void getIngredientEmptyMapTest() {
 		assertEquals("null", imr.findIngredient(2));
 	}
-//
-//	// CREATE 
-//	@Test
-//	public void createIngredientTest() {
-//		imr.createIngredient(TestConstants.MOCK_JSON_OBJECT);
-//		assertEquals(1, imr.getIngredientMap().size());
-//	}
+
+	// CREATE
+	@Test
+	public void createIngredientTest() {
+		imr.createIngredient(TestConstants.MOCK_JSON_OBJECT);
+		assertEquals(1, imr.getIngredientMap().size());
+	}
 }

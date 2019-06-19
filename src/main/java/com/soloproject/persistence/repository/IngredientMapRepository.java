@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
 
 import com.soloproject.persistence.domain.Ingredient;
 import com.soloproject.util.JSONUtil;
