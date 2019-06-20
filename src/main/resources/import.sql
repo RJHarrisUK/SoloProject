@@ -6,5 +6,7 @@ INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalC
 INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (6, 'Bread', 634, 13, 14, 15);
 INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (7, 'Chicken', 128, 13, 43, 15);
 INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (8, 'Kale', 194, 12, 83, 23);
-INSERT INTO RECIPES (r_id, recipeName) VALUES (1, 'recipe one');
-INSERT INTO RECIPES (r_id, recipeName) VALUES (2, 'recipe two');
+INSERT INTO RECIPE (recipeId, recipeName) VALUES (1, 'recipe 1');
+INSERT INTO RECIPE (recipeId, recipeName) VALUES (2, 'recipe 2');
+INSERT INTO RECIPE (recipeId, recipeName) VALUES (3, 'recipe 3');
+INSERT INTO RECIPE (recipeId, recipeName) VALUES (4, 'recipe 4');

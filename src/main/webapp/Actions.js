@@ -46,15 +46,15 @@ function showAllIngredients() {
         }
 
     }
-    req.open("GET", GCP + "/SoloProject/nutrition/ingredients/getAllIngredients");
+    req.open("GET", LOCAL + "/SoloProject/nutrition/ingredients/getAllIngredients");
     req.send();
 }
 
-// READ - get all ingredients function
+// READ - get all recipes function
 function showAllRecipes() {
 
     // remove any rows already on table before new search
-    const container = document.getElementById('table2');
+    const container = document.getElementById('table');
 
     if (container.rows.length > 1) {
 
@@ -85,11 +85,11 @@ function showAllRecipes() {
                 // + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
                 + '</tr>'
             response[i].recipeId
-            $("table").append(tableBuild);
+            $("table").append(tableBuild2);
         }
 
     }
-    req.open("GET", GCP + "/SoloProject/nutrition/recipes/getAllRecipes");
+    req.open("GET", LOCAL + "/SoloProject/nutrition/recipes/getAllRecipes");
     req.send();
 }
 
@@ -163,7 +163,7 @@ function updateIngredient() {
         showAllIngredients();
         clearUpdateModal();
     }
-    req.open("PUT", GCP + "/SoloProject/nutrition/ingredients/updateIngredient/" + updateID);
+    req.open("PUT", LOCAL + "/SoloProject/nutrition/ingredients/updateIngredient/" + updateID);
     req.send(JSON.stringify(ingredient2));
 }
 
