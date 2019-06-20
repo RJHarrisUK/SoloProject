@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "recipe")
+//this must be first letter capitalised
+@Table(name = "Recipe")
 public class Recipe {
 
 	// attributes & table annotations
@@ -24,11 +25,11 @@ public class Recipe {
 	}
 
 	// getters and setters
-	public int getR_id() {
+	public int getRecipeId() {
 		return recipeId;
 	}
 
-	public void setR_id(int recipeId) {
+	public void setRecipeId(int recipeId) {
 		this.recipeId = recipeId;
 	}
 
