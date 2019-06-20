@@ -8,14 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "recipes")
+@Table(name = "recipe")
 public class Recipe {
 
 	// attributes & table annotations
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(length = 5)
-	private int r_id;
+	private int recipeId;
 	@Column(length = 50)
 	private String recipeName;
 
@@ -25,11 +25,11 @@ public class Recipe {
 
 	// getters and setters
 	public int getR_id() {
-		return r_id;
+		return recipeId;
 	}
 
-	public void setR_id(int r_id) {
-		this.r_id = r_id;
+	public void setR_id(int recipeId) {
+		this.recipeId = recipeId;
 	}
 
 	public String getRecipeName() {

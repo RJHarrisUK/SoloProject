@@ -17,6 +17,8 @@ public class TestConstants {
 	public static final String MOCK_JSON_OBJECT_2 = "{\"ingredientId\":2,\"ingredientName\":\"miso\",\"calories\":875,\"totalFat\":92,\"totalCarbs\":34,\"protein\":57}";
 	
 	public static final String SUCCESS_MESSAGE = "Ingredient successfully created";
+	
+	public static final String DELETE_MESSAGE = "Ingredient successfully deleted";
 }
 
 	

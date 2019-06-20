@@ -14,4 +14,6 @@ public interface RecipeService {
 	//DESTROY
 	String deleteRecipe(int recipeID);
 	
+	//READ2
+	String findRecipe(int recipeId);
 }

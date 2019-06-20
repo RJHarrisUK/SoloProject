@@ -9,10 +9,13 @@ public interface RecipeRepository {
 	String getAllRecipes();
 	
 	//UPDATE
-	String updateRecipe(String recipe, int recipeID);
+	String updateRecipe(int recipeID, String recipe);
 	
-	//DESTROY
+	//DELETE
 	String deleteRecipe(int recipeID);
+
+	//READ2
+	String findRecipe(int recipeId);
 	
 }
 
