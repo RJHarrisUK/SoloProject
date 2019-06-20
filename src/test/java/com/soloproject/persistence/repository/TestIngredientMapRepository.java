@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.soloproject.persistence.domain.Ingredient;
 import com.soloproject.util.TestConstants;
 
 public class TestIngredientMapRepository {
@@ -43,4 +44,22 @@ public class TestIngredientMapRepository {
 		imr.createIngredient(TestConstants.MOCK_JSON_OBJECT);
 		assertEquals(1, imr.getIngredientMap().size());
 	}
+	
+	// DELETE
+	@Test
+	public void deleteIngredientTest() {
+		imr.getIngredientMap().put(1, TestConstants.TEST_JAVA_OBJECT);
+		imr.deleteIngredient(1);
+		assertEquals(TestConstants.DELETE_MESSAGE, "Ingredient successfully deleted");
+	}
+
+	
+	// UPDATE
+	@Test
+	public void updateIngredientTest() {
+		imr.getIngredientMap().put(1, TestConstants.TEST_JAVA_OBJECT);
+		imr.updateIngredient(1, TestConstants.MOCK_UPDATE_STRING);
+		assertEquals(334, imr.getIngredientMap().get(1).getCalories());
+	}
+	
 }

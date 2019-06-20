@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 
 import com.soloproject.business.RecipeService;
 
-@Path("/trainee")
+@Path("/recipes")
 public class RecipeController {
 
 	@Inject RecipeService service;
@@ -34,18 +34,18 @@ public class RecipeController {
 	}
 	
 	// DELETE
-	@Path("/deleteRecipe/{traineeID}")
+	@Path("/deleteRecipe/{id}")
 	@DELETE
 	@Produces({" application/json "})
-	public String deleteRecipe(@PathParam("recipeID") int recipeID) {
-		return service.deleteRecipe(recipeID);
+	public String deleteRecipe(@PathParam("id") int recipeId) {
+		return service.deleteRecipe(recipeId);
 	}
 	
 	// UPDATE
-	@Path("/updateRecipe/{traineeID}")
+	@Path("/updateRecipe/{id}")
 	@PUT
 	@Produces({" application/json "})
-	public String updateRecipe(@PathParam("recipeID") String recipe, int recipeID) {
-		return service.updateRecipe(recipe, recipeID);
+	public String updateRecipe(@PathParam("id") int recipeId, String recipe) {
+		return service.updateRecipe(recipe, recipeId);
 	}
 }

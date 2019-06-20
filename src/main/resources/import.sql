@@ -1,4 +1,10 @@
-INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (1, 'avocado', 100, 12, 13, 14);
-INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (2, 'eggs', 200, 13, 14, 15);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (1, 'Avocado', 100, 12, 13, 14);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (2, 'Eggs', 200, 13, 34, 15);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (3, 'Tofu', 623, 13, 14, 15);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (4, 'Miso', 123, 13, 54, 15);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (5, 'Yoghurt', 462, 13, 14, 15);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (6, 'Bread', 634, 13, 14, 15);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (7, 'Chicken', 128, 13, 43, 15);
+INSERT INTO INGREDIENT (ingredientId, ingredientName, calories, totalFat, totalCarbs, protein) VALUES (8, 'Kale', 194, 12, 83, 23);
 INSERT INTO RECIPES (r_id, recipeName) VALUES (1, 'recipe one');
 INSERT INTO RECIPES (r_id, recipeName) VALUES (2, 'recipe two');
