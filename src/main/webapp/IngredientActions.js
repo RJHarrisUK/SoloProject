@@ -50,49 +50,6 @@ function showAllIngredients() {
     req.send();
 }
 
-// READ - get all ingredients function
-function showAllRecipes() {
-
-    // remove any rows already on table before new search
-    const container = document.getElementById('table2');
-
-    if (container.rows.length > 1) {
-
-        let tableSize = container.rows.length;
-        for (i = tableSize; i > 1; i--) {
-            container.deleteRow(i - 1);
-        }
-    }
-    let req = new XMLHttpRequest();
-
-    req.onload = function () {
-        let response = JSON.parse(req.response);
-
-        // testing the response is correct in console
-        console.log(response);
-        console.log(response[0].recipeName);
-
-        // // setting up table variables
-        let tableBuild2 = null;
-
-        // // for loop through response.Search to populate table with results
-        let len = response.length;
-        for (var i = 0; i < len; i++) {
-
-            tableBuild2 = '<tr><td>' + response[i].recipeId
-                + '</td><td>' + response[i].recipeName
-                // + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
-                // + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
-                + '</tr>'
-            response[i].recipeId
-            $("table").append(tableBuild);
-        }
-
-    }
-    req.open("GET", GCP + "/SoloProject/nutrition/recipes/getAllRecipes");
-    req.send();
-}
-
 let updateID = 0;
 
 function unSetUpdateID() {
