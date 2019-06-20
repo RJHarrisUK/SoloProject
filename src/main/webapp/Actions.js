@@ -81,8 +81,12 @@ function showAllRecipes() {
 
             tableBuild2 = '<tr><td>' + response[i].recipeId
                 + '</td><td>' + response[i].recipeName
-                // + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
-                // + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
+                + '</td><td>' + "-"
+                + '</td><td>' + "-"
+                + '</td><td>' + "-"
+                + '</td><td>' + "-"
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="">Update</button>`
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteRecipe(${response[i].recipeId})">Delete</button>`
                 + '</tr>'
             response[i].recipeId
             $("table").append(tableBuild2);
@@ -120,27 +124,63 @@ function addIngredient() {
         console.log(response);
 
     }
-    req.open("POST", "/SoloProject/nutrition/ingredients/createIngredient");
+    req.open("POST", LOCAL + "/SoloProject/nutrition/ingredients/createIngredient");
     req.send(JSON.stringify(ingredient));
     $('#exampleModal').modal('hide');
     showAllIngredients();
 }
 
-// DELETE - add ingredient function
-function deleteIngredient(id) {
+// CREATE - add recipe function
+function addRecipe() {
+
+    // set ingredient object as inputs
+    let recipe = {
+        "recipeName": document.getElementById("recipeNameBox").value
+    }
+
     let req = new XMLHttpRequest();
 
+    req.onload = function () {
+        let response = JSON.parse(req.response);
+        console.log(response);
+
+    }
+    req.open("POST", LOCAL + "/SoloProject/nutrition/recipes/createRecipe");
+    req.send(JSON.stringify(recipe));
+    $('#recipeModal').modal('hide');
+    showAllRecipes();
+}
+
+// DELETE - delete ingredient function
+function deleteIngredient(id) {
+    let req = new XMLHttpRequest();
 
     req.onload = function () {
         let response = JSON.parse(req.responseText);
         console.log(response);
     }
-    req.open("DELETE", GCP + "/SoloProject/nutrition/ingredients/deleteIngredient/" + id);
+    req.open("DELETE", LOCAL + "/SoloProject/nutrition/ingredients/deleteIngredient/" + id);
     req.send();
 
     console.log(req);
     $('#exampleModal').modal('hide');
     showAllIngredients();
+}
+
+// DELETE - delete recipe function
+function deleteRecipe(id) {
+    let req = new XMLHttpRequest();
+
+    req.onload = function () {
+        let response = JSON.parse(req.responseText);
+        console.log(response);
+    }
+    req.open("DELETE", LOCAL + "/SoloProject/nutrition/recipes/deleteRecipe/" + id);
+    req.send();
+
+    console.log(req);
+    $('#exampleModal').modal('hide');
+    showAllRecipes();
 }
 
 // UPDATE PART 2: THE UPDATE STRIKES BACK - update ingredient function http request

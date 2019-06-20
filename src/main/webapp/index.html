@@ -19,9 +19,14 @@
         <!-- Show All Recipes Modal Button -->
         <button type="button" class="btn btn-primary" onclick="showAllRecipes()">Show All Recipes</button>
 
-        <!-- Add Ingredient Modal Button -->
+        <!-- New Ingredient Modal Button -->
         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-            Add Ingredient
+            New Ingredient
+        </button>
+
+        <!-- New Recipe Modal Button -->
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#recipeModal">
+            New Recipe
         </button>
 
         <!-- Add Ingredient Modal Box -->
@@ -75,7 +80,7 @@
             </div>
         </div>
 
-        <!-- Add Ingredient Modal Box -->
+        <!-- Update Ingredient Modal Box -->
         <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -125,6 +130,33 @@
                         <button type="button" class="btn btn-primary" data-dismiss="modal"
                             onclick="updateIngredient()">Update
                             Ingredient</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Recipe Modal Box -->
+        <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="newRecipeModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New Recipe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Recipe Name Input Box -->
+                        <div class="form-group">
+                            <label for="RecipeNameBox"></label>
+                            <input type="text" class="form-control" id="recipeNameBox"
+                                aria-describedby="ingredientNameBox" placeholder="Recipe Name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="addRecipe()">Add Recipe</button>
                     </div>
                 </div>
             </div>

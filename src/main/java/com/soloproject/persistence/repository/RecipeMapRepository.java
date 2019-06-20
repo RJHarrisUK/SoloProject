@@ -22,11 +22,12 @@ public class RecipeMapRepository implements RecipeRepository {
 		return util.getJSONForObject(recipeMap.values());
 	}
 
+
 	// CREATE
 	@Override
 	public String createRecipe(String recipe) {
 		newRecipe = util.getObjectForJSON(recipe, Recipe.class);
-		recipeMap.put(newRecipe.getR_id(), newRecipe);
+		recipeMap.put(newRecipe.getRecipeId(), newRecipe);
 		return "Recipe successfully created";
 	}
 
