@@ -72,12 +72,12 @@ function showAllRecipes() {
         console.log(response);
         console.log(response[0].recipeName);
         console.log(response[0].ingredientSet);
-        console.log(response[0].ingredientSet.ingredientId);
-        console.log(response[0].ingredientSet.calories);
-        console.log(response[0].ingredientSet.ingredientName);
-        console.log(response[0].ingredientSet.protein);
-        console.log(response[0].ingredientSet.totalCarbs);
-        console.log(response[0].ingredientSet.totalFat);
+        console.log(response[0].ingredientSet[0].ingredientId);
+        console.log(response[0].ingredientSet[0].calories);
+        console.log(response[0].ingredientSet[0].ingredientName);
+        console.log(response[0].ingredientSet[0].protein);
+        console.log(response[0].ingredientSet[0].totalCarbs);
+        console.log(response[0].ingredientSet[0].totalFat);
 
         // // setting up table variables
         let tableBuild2 = null;
