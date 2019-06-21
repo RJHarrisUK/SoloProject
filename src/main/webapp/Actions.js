@@ -96,11 +96,12 @@ function showAllRecipes() {
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteRecipe(${response[i].recipeId})">Delete</button>`
                 + '</tr>'
                 + '<tr><td>' + "-"
-                + '</td><td>' + response[i].ingredientSet[i].ingredientName
-                + '</td><td>' + response[i].ingredientSet[i].calories
-                + '</td><td>' + response[i].ingredientSet[i].protein
-                + '</td><td>' + response[i].ingredientSet[i].totalCarbs
-                + '</td><td>' + response[i].ingredientSet[i].totalFat
+                + '</td><td>' + response[i].ingredientSet[i].
+                // ingredientName
+                // + '</td><td>' + response[i].ingredientSet[i].calories
+                // + '</td><td>' + response[i].ingredientSet[i].protein
+                // + '</td><td>' + response[i].ingredientSet[i].totalCarbs
+                // + '</td><td>' + response[i].ingredientSet[i].totalFat
                 + '</td><td>' + "-"
                 + '</td><td>' + "-"
                 + '</tr>'
