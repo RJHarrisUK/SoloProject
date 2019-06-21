@@ -28,7 +28,7 @@ public class Recipe {
 	private String recipeName;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "recipes_ingredients", joinColumns = @JoinColumn(name = "recipeId"), inverseJoinColumns = @JoinColumn(name = "ingredientId"))
+	@JoinTable(name = "RECIPES_INGREDIENTS", joinColumns = @JoinColumn(name = "RecipeId"), inverseJoinColumns = @JoinColumn(name = "IngredientId"))
 	private Set<Ingredient> ingredientSet = new HashSet<>();
 
 	// default constructor
