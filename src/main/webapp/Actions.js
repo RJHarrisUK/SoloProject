@@ -40,6 +40,7 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].totalFat
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="addIngredientToRecipe(${response[i].ingredientId})">Add To Recipe</button>`
                 + '</tr>'
             response[i].ingredientId
             $("table").append(tableBuild);
@@ -119,7 +120,7 @@ function showAllRecipes() {
 
 
     }
-    req.open("GET", GCP + "/SoloProject/nutrition/recipes/getAllRecipes");
+    req.open("GET", "/SoloProject/nutrition/recipes/getAllRecipes");
     req.send();
 }
 
