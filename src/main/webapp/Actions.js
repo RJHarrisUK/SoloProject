@@ -90,13 +90,17 @@ function showAllRecipes() {
             let ingreds = "";
             for (let ingredient of response[i].ingredientSet) {
 
-
                 ingreds +=
-                    '<tr><td>' + ingredient.ingredientName
+
+                    + '<tr>'
+                    + '<td>' + "-"
+                    + '</td><td>' + ingredient.ingredientName
                     + '</td><td>' + ingredient.calories
                     + '</td><td>' + ingredient.protein
                     + '</td><td>' + ingredient.totalCarbs
                     + '</td><td>' + ingredient.totalFat
+                    + '</td><td>' + "-"
+                    + '</td><td>' + "-"
                     + '</td></tr>'
             }
 
@@ -108,13 +112,7 @@ function showAllRecipes() {
                 + '</td><td>' + "-"
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteRecipe(${response[i].recipeId})">Delete</button>`
-                + '</tr>'
-                + '<tr><td>' + "-"
-                + '</td>'
-                + ingreds
-
-                + '<td>' + "-"
-                + '</td><td>' + "-"
+                + '</td>' + ingreds
                 + '</tr>'
             response[i].recipeId
             $("table").append(tableBuild2);
