@@ -16,7 +16,6 @@ public class RecipeController {
 
 	@Inject RecipeService service;
 	
-	
 	// READ
 	@Path("/getAllRecipes")
 	@GET
@@ -48,4 +47,21 @@ public class RecipeController {
 	public String updateRecipe(@PathParam("id") int recipeId, String recipe) {
 		return service.updateRecipe(recipe, recipeId);
 	}
+	
+	// CREATE (JOINT)
+	@Path("/addToRecipe/{recipeId}/{ingredientId}")
+	@POST
+	@Produces({" application/json "})
+	String addToRecipe(@PathParam("recipeId") int recipeId, @PathParam("ingredientId") int ingredientId) {
+		return service.addToRecipe(recipeId, ingredientId);
+	}
+	
+	// DELETE (JOINT)
+	@Path("/removeFromRecipe/{recipeId}/{ingredientId}")
+	@DELETE
+	@Produces({" application/json "})
+	String removeFromRecipe(@PathParam("recipeId") int recipeId, @PathParam("ingredientId") int ingredientId) {
+		return service.removeFromRecipe(recipeId, ingredientId);
+	}
+	
 }

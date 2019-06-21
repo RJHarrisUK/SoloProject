@@ -16,4 +16,11 @@ public interface RecipeService {
 	
 	//READ2
 	String findRecipe(int recipeId);
+	
+	// CREATE (JOINT)
+	String addToRecipe(int recipeId, int ingredientId);
+
+	// DELETE (JOINT)
+	String removeFromRecipe(int recipeId, int ingredientId);
+	
 }

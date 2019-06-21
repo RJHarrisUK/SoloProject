@@ -33,5 +33,15 @@ public class RecipeServiceImpl implements RecipeService {
 	public String findRecipe(int recipeId) {
 		return recipeRepo.findRecipe(recipeId);
 	}
+
+	@Override
+	public String addToRecipe(int recipeId, int ingredientId) {
+		return recipeRepo.addToRecipe(recipeId, ingredientId);
+	}
+
+	@Override
+	public String removeFromRecipe(int recipeId, int ingredientId) {
+		return recipeRepo.removeFromRecipe(recipeId, ingredientId);
+	}
 	
 }

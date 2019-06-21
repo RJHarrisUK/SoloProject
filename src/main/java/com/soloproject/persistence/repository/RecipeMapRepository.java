@@ -65,4 +65,18 @@ public class RecipeMapRepository implements RecipeRepository {
 		this.recipeMap = recipeMap;
 	}
 
+
+	@Override
+	public String addToRecipe(int recipeId, int ingredientId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String removeFromRecipe(int recipeId, int ingredientId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

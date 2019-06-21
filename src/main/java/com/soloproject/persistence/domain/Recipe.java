@@ -1,10 +1,17 @@
 package com.soloproject.persistence.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +26,10 @@ public class Recipe {
 	private int recipeId;
 	@Column(length = 50)
 	private String recipeName;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "recipes_ingredients", joinColumns = @JoinColumn(name = "recipeId"), inverseJoinColumns = @JoinColumn(name = "ingredientId"))
+	private Set<Ingredient> ingredientSet = new HashSet<>();
 
 	// default constructor
 	public Recipe() {
@@ -41,5 +52,12 @@ public class Recipe {
 		this.recipeName = recipeName;
 	}
 
+	// table join getter and setter for ingredient map
+	public Set<Ingredient> getIngredientSet() {
+		return ingredientSet;
+	}
 
+	public void setIngredientSet(Set<Ingredient> ingredientSet) {
+		this.ingredientSet = ingredientSet;
+	}
 }
