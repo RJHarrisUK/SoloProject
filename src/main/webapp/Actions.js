@@ -108,6 +108,7 @@ function showAllRecipes() {
             $("table").append(tableBuild2);
         }
 
+
     }
     req.open("GET", GCP + "/SoloProject/nutrition/recipes/getAllRecipes");
     req.send();
