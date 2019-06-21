@@ -247,7 +247,7 @@ function clearUpdateModal() {
 }
 
 // UPDATE PART 1 - update ingredient button - open modal and save id number
-function updateIngredientModal(updateID) {
+function updateIngredientModal(updateId) {
 
     // set ingredient object as inputs
     let ingredient2 = {
@@ -259,7 +259,7 @@ function updateIngredientModal(updateID) {
     }
 }
 
-function addIngredientToRecipe(AddID) {
+function addIngredientToRecipe() {
     let req = new XMLHttpRequest();
 
     let recipeID = document.getElementById("addToRecipeIdBox").value;
@@ -268,7 +268,7 @@ function addIngredientToRecipe(AddID) {
         let response = JSON.parse(req.responseText);
         console.log(response);
     }
-    req.open("POST", GCP + "/SoloProject/nutrition/recipes/addToRecipe/" + recipeID + "/" + AddID);
+    req.open("POST", GCP + "/SoloProject/nutrition/recipes/addToRecipe/" + recipeID + "/" + addID);
     req.send();
 
     console.log(req);
