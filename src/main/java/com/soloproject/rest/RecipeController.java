@@ -48,11 +48,16 @@ public class RecipeController {
 		return service.updateRecipe(recipe, recipeId);
 	}
 	
+	// setter for a mockito test
+	public void setService(RecipeService service) {
+		this.service = service;
+	}
+	
 	// CREATE (JOINT)
 	@Path("/addToRecipe/{recipeId}/{ingredientId}")
 	@POST
 	@Produces({" application/json "})
-	String addToRecipe(@PathParam("recipeId") int recipeId, @PathParam("ingredientId") int ingredientId) {
+	public String addToRecipe(@PathParam("recipeId") int recipeId, @PathParam("ingredientId") int ingredientId) {
 		return service.addToRecipe(recipeId, ingredientId);
 	}
 	
@@ -60,7 +65,7 @@ public class RecipeController {
 	@Path("/removeFromRecipe/{recipeId}/{ingredientId}")
 	@DELETE
 	@Produces({" application/json "})
-	String removeFromRecipe(@PathParam("recipeId") int recipeId, @PathParam("ingredientId") int ingredientId) {
+	public String removeFromRecipe(@PathParam("recipeId") int recipeId, @PathParam("ingredientId") int ingredientId) {
 		return service.removeFromRecipe(recipeId, ingredientId);
 	}
 	
