@@ -40,7 +40,7 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].totalFat
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
-                + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addToRecipeModal" onclick="setAddIngredientID(${response[i].ingredientId})">Add To Recipe</button>`
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addToRecipeModal" onclick="setAddIngredientID(${response[i].ingredientId});">Add To Recipe</button>`
                 + '</tr>'
             response[i].ingredientId
             $("table").append(tableBuild);
@@ -132,6 +132,9 @@ function unSetUpdateID() {
 function setUpdateID(id) {
     updateID = id;
 }
+
+let addID = 0;
+
 function setAddIngredientID(addToRecipeID) {
     addID = addToRecipeID;
 }
@@ -244,7 +247,7 @@ function clearUpdateModal() {
 }
 
 // UPDATE PART 1 - update ingredient button - open modal and save id number
-function updateIngredientModal(updateId) {
+function updateIngredientModal(updateID) {
 
     // set ingredient object as inputs
     let ingredient2 = {
