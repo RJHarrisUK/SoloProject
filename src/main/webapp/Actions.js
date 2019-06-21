@@ -1,6 +1,6 @@
 // Javascript File for SoloProject
 
-const GCP = "http://34.77.187.248:8888"
+const GCP = "http://34.76.51.109:8888"
 const LOCAL = "http://localhost:8080"
 
 // READ - get all ingredients function
@@ -46,7 +46,7 @@ function showAllIngredients() {
         }
 
     }
-    req.open("GET", LOCAL + "/SoloProject/nutrition/ingredients/getAllIngredients");
+    req.open("GET", GCP + "/SoloProject/nutrition/ingredients/getAllIngredients");
     req.send();
 }
 
@@ -93,7 +93,7 @@ function showAllRecipes() {
         }
 
     }
-    req.open("GET", LOCAL + "/SoloProject/nutrition/recipes/getAllRecipes");
+    req.open("GET", GCP + "/SoloProject/nutrition/recipes/getAllRecipes");
     req.send();
 }
 
@@ -124,7 +124,7 @@ function addIngredient() {
         console.log(response);
 
     }
-    req.open("POST", LOCAL + "/SoloProject/nutrition/ingredients/createIngredient");
+    req.open("POST", GCP + "/SoloProject/nutrition/ingredients/createIngredient");
     req.send(JSON.stringify(ingredient));
     $('#exampleModal').modal('hide');
     showAllIngredients();
@@ -145,7 +145,7 @@ function addRecipe() {
         console.log(response);
 
     }
-    req.open("POST", LOCAL + "/SoloProject/nutrition/recipes/createRecipe");
+    req.open("POST", GCP + "/SoloProject/nutrition/recipes/createRecipe");
     req.send(JSON.stringify(recipe));
     $('#recipeModal').modal('hide');
     showAllRecipes();
@@ -159,7 +159,7 @@ function deleteIngredient(id) {
         let response = JSON.parse(req.responseText);
         console.log(response);
     }
-    req.open("DELETE", LOCAL + "/SoloProject/nutrition/ingredients/deleteIngredient/" + id);
+    req.open("DELETE", GCP + "/SoloProject/nutrition/ingredients/deleteIngredient/" + id);
     req.send();
 
     console.log(req);
@@ -175,7 +175,7 @@ function deleteRecipe(id) {
         let response = JSON.parse(req.responseText);
         console.log(response);
     }
-    req.open("DELETE", LOCAL + "/SoloProject/nutrition/recipes/deleteRecipe/" + id);
+    req.open("DELETE", GCP + "/SoloProject/nutrition/recipes/deleteRecipe/" + id);
     req.send();
 
     console.log(req);
@@ -203,7 +203,7 @@ function updateIngredient() {
         showAllIngredients();
         clearUpdateModal();
     }
-    req.open("PUT", LOCAL + "/SoloProject/nutrition/ingredients/updateIngredient/" + updateID);
+    req.open("PUT", GCP + "/SoloProject/nutrition/ingredients/updateIngredient/" + updateID);
     req.send(JSON.stringify(ingredient2));
 }
 
