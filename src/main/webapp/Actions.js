@@ -82,9 +82,23 @@ function showAllRecipes() {
         // // setting up table variables
         let tableBuild2 = null;
 
+
         // // for loop through response.Search to populate table with results
         let len = response.length;
         for (var i = 0; i < len; i++) {
+
+            let ingreds = "";
+            for (let ingredient of response[i].ingredientSet) {
+
+
+                +'<td>' + ingredient.ingredientName
+                    + '</td><td>' + ingredient.calories
+                    + '</td><td>' + ingredient.protein
+                    + '</td><td>' + ingredient.totalCarbs
+                    + '</td><td>' + ingredient.totalFat
+                    + '</td>'
+
+            }
 
             tableBuild2 = '<tr><td>' + response[i].recipeId
                 + '</td><td>' + response[i].recipeName
@@ -96,12 +110,10 @@ function showAllRecipes() {
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteRecipe(${response[i].recipeId})">Delete</button>`
                 + '</tr>'
                 + '<tr><td>' + "-"
-                + '</td><td>' + response[i].ingredientSet[i].ingredientName
-                + '</td><td>' + response[i].ingredientSet[i].calories
-                + '</td><td>' + response[i].ingredientSet[i].protein
-                + '</td><td>' + response[i].ingredientSet[i].totalCarbs
-                + '</td><td>' + response[i].ingredientSet[i].totalFat
-                + '</td><td>' + "-"
+                + '</td>'
+                + ingreds
+
+                + '<td>' + "-"
                 + '</td><td>' + "-"
                 + '</tr>'
             response[i].recipeId
