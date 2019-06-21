@@ -94,23 +94,23 @@ function showAllRecipes() {
                 ingreds +=
 
                     + '<tr>'
-                    + '<td>' + "-"
+                    + '<td>' + ""
                     + '</td><td>' + ingredient.ingredientName
                     + '</td><td>' + ingredient.calories
                     + '</td><td>' + ingredient.protein
                     + '</td><td>' + ingredient.totalCarbs
                     + '</td><td>' + ingredient.totalFat
-                    + '</td><td>' + "-"
-                    + '</td><td>' + "-"
+                    + '</td><td>' + ""
+                    + '</td><td>' + ""
                     + '</td></tr>'
             }
 
             tableBuild2 = '<tr><td>' + response[i].recipeId
                 + '</td><td>' + response[i].recipeName
-                + '</td><td>' + "-"
-                + '</td><td>' + "-"
-                + '</td><td>' + "-"
-                + '</td><td>' + "-"
+                + '</td><td>' + ""
+                + '</td><td>' + ""
+                + '</td><td>' + ""
+                + '</td><td>' + ""
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteRecipe(${response[i].recipeId})">Delete</button>`
                 + '</td></tr>' + ingreds

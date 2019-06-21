@@ -18,5 +18,26 @@ pipeline{
 				sh "sudo cp target/SoloProject.war /var/lib/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
+                stage('--test--'){
+                        steps{
+                                sh "mvn test"
+                        }
+                }
+		stage('--sonar--'){
+                        steps{
+                                sh "mvn sonar:sonar"
+                        }
+                }
+		stage('--verify--'){
+                        steps{
+                                sh "mvn verify"
+                        }
+                }
+		stage('--surefire--'){
+                        steps{
+                                sh "mvn surefire-report:report"
+				sh "mvn site"
+                        }                
+		}
         }
 }
