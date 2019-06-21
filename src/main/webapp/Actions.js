@@ -112,8 +112,7 @@ function showAllRecipes() {
                 + '</td><td>' + "-"
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteRecipe(${response[i].recipeId})">Delete</button>`
-                + '</td>' + ingreds
-                + '</tr>'
+                + '</td></tr>' + ingreds
             response[i].recipeId
             $("table").append(tableBuild2);
         }
