@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.soloproject.persistence.domain.Ingredient;
 import com.soloproject.persistence.domain.Recipe;
 import com.soloproject.util.JSONUtil;
 
@@ -82,6 +83,30 @@ public class RecipeDBRepository implements RecipeRepository {
 		return util.getJSONForObject(manager.find(Recipe.class, recipeId));
 	}	
 
+	@Override
+	@Transactional(REQUIRED)
+	public String addToRecipe(int recipeId, int ingredientId) {
+		Ingredient ingredientToAdd = manager.find(Ingredient.class, ingredientId);
+		Recipe recipeToPopulate = manager.find(Recipe.class, recipeId);
+		recipeToPopulate.getIngredientSet().add(ingredientToAdd);
+		manager.persist(recipeToPopulate);
+		return "{\"message\": \"Ingredient successfully added to Recipe\"}";
+	}
+
+	@Override
+	@Transactional(REQUIRED)
+	public String removeFromRecipe(int recipeId, int ingredientId) {
+		Recipe recipeToDepopulate = manager.find(Recipe.class, recipeId);
+		for (Ingredient ingredient : recipeToDepopulate.getIngredientSet()) {
+			if (ingredient.getIngredientId() == ingredientId) {
+				recipeToDepopulate.getIngredientSet().remove(ingredient);
+				break;
+			}
+		}
+		return "{\"message\": \"Ingredient successfully removed from Recipe\"}";
+	}
+	
+	// getter and setter
 	public void setManager(EntityManager manager) {
 		this.manager = manager;
 	}

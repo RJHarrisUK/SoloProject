@@ -10,3 +10,6 @@ INSERT INTO RECIPE (recipeId, recipeName) VALUES (1, 'recipe 1');
 INSERT INTO RECIPE (recipeId, recipeName) VALUES (2, 'recipe 2');
 INSERT INTO RECIPE (recipeId, recipeName) VALUES (3, 'recipe 3');
 INSERT INTO RECIPE (recipeId, recipeName) VALUES (4, 'recipe 4');
+INSERT INTO RECIPES_INGREDIENTS (recipeId, ingredientId) VALUES(1,1)
+INSERT INTO RECIPES_INGREDIENTS (recipeId, ingredientId) VALUES(1,2)
+INSERT INTO RECIPES_INGREDIENTS (recipeId, ingredientId) VALUES(2,1)
