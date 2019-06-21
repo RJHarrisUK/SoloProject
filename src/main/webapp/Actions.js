@@ -91,13 +91,13 @@ function showAllRecipes() {
             for (let ingredient of response[i].ingredientSet) {
 
 
-                ingreds += '<td>' + ingredient.ingredientName
+                ingreds +=
+                    '<tr><td>' + ingredient.ingredientName
                     + '</td><td>' + ingredient.calories
                     + '</td><td>' + ingredient.protein
                     + '</td><td>' + ingredient.totalCarbs
                     + '</td><td>' + ingredient.totalFat
-                    + '</td>'
-
+                    + '</td></tr>'
             }
 
             tableBuild2 = '<tr><td>' + response[i].recipeId
