@@ -71,6 +71,13 @@ function showAllRecipes() {
         // testing the response is correct in console
         console.log(response);
         console.log(response[0].recipeName);
+        console.log(response[0].ingredientSet);
+        console.log(response[0].ingredientSet.ingredientId);
+        console.log(response[0].ingredientSet.calories);
+        console.log(response[0].ingredientSet.ingredientName);
+        console.log(response[0].ingredientSet.protein);
+        console.log(response[0].ingredientSet.totalCarbs);
+        console.log(response[0].ingredientSet.totalFat);
 
         // // setting up table variables
         let tableBuild2 = null;
