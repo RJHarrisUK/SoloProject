@@ -87,6 +87,7 @@ public class IngredientDBRepository implements IngredientRepository {
 		return util.getJSONForObject(manager.find(Ingredient.class, ingredientId));
 
 	}
+	
 	public void setManager(EntityManager manager) {
 		this.manager = manager;
 	}

@@ -1,6 +1,6 @@
 // Javascript File for SoloProject
 
-const GCP = "http://34.77.187.248:8888"
+const GCP = "http://34.76.51.109:8888"
 const LOCAL = "http://localhost:8080"
 
 // READ - get all ingredients function
@@ -40,6 +40,7 @@ function showAllIngredients() {
                 + '</td><td>' + response[i].totalFat
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="setUpdateID(${response[i].ingredientId});">Update</button>`
                 + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteIngredient(${response[i].ingredientId})">Delete</button>`
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addToRecipeModal" onclick="setAddIngredientID(${response[i].ingredientId});">Add To Recipe</button>`
                 + '</tr>'
             response[i].ingredientId
             $("table").append(tableBuild);
@@ -50,6 +51,79 @@ function showAllIngredients() {
     req.send();
 }
 
+// READ - get all recipes function
+function showAllRecipes() {
+
+    // remove any rows already on table before new search
+    const container = document.getElementById('table');
+
+    if (container.rows.length > 1) {
+
+        let tableSize = container.rows.length;
+        for (i = tableSize; i > 1; i--) {
+            container.deleteRow(i - 1);
+        }
+    }
+    let req = new XMLHttpRequest();
+
+    req.onload = function () {
+        let response = JSON.parse(req.response);
+
+        // testing the response is correct in console
+        console.log(response);
+        console.log(response[0].recipeName);
+        console.log(response[0].ingredientSet);
+        console.log(response[0].ingredientSet[0].ingredientId);
+        console.log(response[0].ingredientSet[0].calories);
+        console.log(response[0].ingredientSet[0].ingredientName);
+        console.log(response[0].ingredientSet[0].protein);
+        console.log(response[0].ingredientSet[0].totalCarbs);
+        console.log(response[0].ingredientSet[0].totalFat);
+
+        // // setting up table variables
+        let tableBuild2 = null;
+
+
+        // // for loop through response.Search to populate table with results
+        let len = response.length;
+        for (var i = 0; i < len; i++) {
+
+            let ingreds = "";
+            for (let ingredient of response[i].ingredientSet) {
+
+                ingreds +=
+
+                    + '<tr>'
+                    + '<td>' + ""
+                    + '</td><td>' + ingredient.ingredientName
+                    + '</td><td>' + ingredient.calories
+                    + '</td><td>' + ingredient.protein
+                    + '</td><td>' + ingredient.totalCarbs
+                    + '</td><td>' + ingredient.totalFat
+                    + '</td><td>' + ""
+                    + '</td><td>' + ""
+                    + '</td></tr>'
+            }
+
+            tableBuild2 = '<tr><td>' + response[i].recipeId
+                + '</td><td>' + response[i].recipeName
+                + '</td><td>' + ""
+                + '</td><td>' + ""
+                + '</td><td>' + ""
+                + '</td><td>' + ""
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateModal" onClick="">Update</button>`
+                + '</td><td>' + `<button type="button" class="btn btn-secondary" onclick="deleteRecipe(${response[i].recipeId})">Delete</button>`
+                + '</td></tr>' + ingreds
+            response[i].recipeId
+            $("table").append(tableBuild2);
+        }
+
+
+    }
+    req.open("GET", "/SoloProject/nutrition/recipes/getAllRecipes");
+    req.send();
+}
+
 let updateID = 0;
 
 function unSetUpdateID() {
@@ -57,6 +131,12 @@ function unSetUpdateID() {
 }
 function setUpdateID(id) {
     updateID = id;
+}
+
+let addID = 0;
+
+function setAddIngredientID(addToRecipeID) {
+    addID = addToRecipeID;
 }
 // CREATE - add ingredient function
 function addIngredient() {
@@ -77,16 +157,36 @@ function addIngredient() {
         console.log(response);
 
     }
-    req.open("POST", "/SoloProject/nutrition/ingredients/createIngredient");
+    req.open("POST", GCP + "/SoloProject/nutrition/ingredients/createIngredient");
     req.send(JSON.stringify(ingredient));
     $('#exampleModal').modal('hide');
     showAllIngredients();
 }
 
-// DELETE - add ingredient function
-function deleteIngredient(id) {
+// CREATE - add recipe function
+function addRecipe() {
+
+    // set ingredient object as inputs
+    let recipe = {
+        "recipeName": document.getElementById("recipeNameBox").value
+    }
+
     let req = new XMLHttpRequest();
 
+    req.onload = function () {
+        let response = JSON.parse(req.response);
+        console.log(response);
+
+    }
+    req.open("POST", GCP + "/SoloProject/nutrition/recipes/createRecipe");
+    req.send(JSON.stringify(recipe));
+    $('#recipeModal').modal('hide');
+    showAllRecipes();
+}
+
+// DELETE - delete ingredient function
+function deleteIngredient(id) {
+    let req = new XMLHttpRequest();
 
     req.onload = function () {
         let response = JSON.parse(req.responseText);
@@ -98,6 +198,22 @@ function deleteIngredient(id) {
     console.log(req);
     $('#exampleModal').modal('hide');
     showAllIngredients();
+}
+
+// DELETE - delete recipe function
+function deleteRecipe(id) {
+    let req = new XMLHttpRequest();
+
+    req.onload = function () {
+        let response = JSON.parse(req.responseText);
+        console.log(response);
+    }
+    req.open("DELETE", GCP + "/SoloProject/nutrition/recipes/deleteRecipe/" + id);
+    req.send();
+
+    console.log(req);
+    $('#exampleModal').modal('hide');
+    showAllRecipes();
 }
 
 // UPDATE PART 2: THE UPDATE STRIKES BACK - update ingredient function http request
@@ -141,5 +257,23 @@ function updateIngredientModal(updateId) {
         "totalCarbs": document.getElementById("updatecarbsBox").value,
         "protein": document.getElementById("updateproteinBox").value
     }
-
 }
+
+function addIngredientToRecipe() {
+    let req = new XMLHttpRequest();
+
+    let recipeID = document.getElementById("addToRecipeIdBox").value;
+
+    req.onload = function () {
+        let response = JSON.parse(req.responseText);
+        console.log(response);
+    }
+    req.open("POST", GCP + "/SoloProject/nutrition/recipes/addToRecipe/" + recipeID + "/" + addID);
+    req.send();
+
+    console.log(req);
+    $('#addToRecipeModal').modal('hide');
+    showAllRecipes();
+}
+
+

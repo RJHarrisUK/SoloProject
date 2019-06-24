@@ -34,6 +34,7 @@ public class IngredientMapRepository implements IngredientRepository {
 		return "Ingredient successfully created";
 	}
 
+
 	// DELETE
 	@Override
 	public String deleteIngredient(int ingredientId) {
@@ -48,9 +49,9 @@ public class IngredientMapRepository implements IngredientRepository {
 
 		if (ingredientMap.containsKey(ingredientId)) {
 			ingredientMap.replace(ingredientId, upIngredient);
-			return "Classroom added" + util.getJSONForObject(ingredientMap.values());
+			return "Ingredient added" + util.getJSONForObject(ingredientMap.values());
 		}
-		return "Cannot update this classroom.";
+		return "Cannot update this ingredient.";
 	}
 
 	// READ2

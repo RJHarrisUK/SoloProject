@@ -56,8 +56,8 @@ public class IngredientController {
 	public String findIngredient(@PathParam("id") int ingredientId) {
 		return service.findIngredient(ingredientId);
 	}
+  
 	// setter for tests
 	public void setService(IngredientService service) {
 		this.service = service;
 	}
-}
