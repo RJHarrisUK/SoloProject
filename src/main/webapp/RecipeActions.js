@@ -1,1 +1,0 @@
-// Javascript File for SoloProject Recipes Entity

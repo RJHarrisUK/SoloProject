@@ -49,13 +49,6 @@ public class Recipe {
 		this.recipeId = recipeId;
 		this.recipeName = recipeName;
 	}
-
-	// other constructor
-	public Recipe(int recipeId, String recipeName) {
-		super();
-		this.recipeId = recipeId;
-		this.recipeName = recipeName;
-	}
 	
 	// getters and setters
 	public int getRecipeId() {
