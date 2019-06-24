@@ -53,7 +53,7 @@ public class RecipeDBRepository implements RecipeRepository {
 		
 		if (manager.contains(deleteRecipe)) {
 			manager.remove(deleteRecipe);
-			  return "{\"message\": \"Recipe " + recipeId +  " sucessfully deleted \"}";
+			  return "{\"message\": \"Recipe " + recipeId +  " successfully deleted\"}";
 		}
 		return "{\"message\": \"No recipe found with id " + recipeId + ".\"}";
 	}
