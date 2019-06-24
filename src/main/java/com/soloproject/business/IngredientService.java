@@ -16,4 +16,4 @@ public interface IngredientService {
 	
 	//READ2
 	String findIngredient(int ingredientId);
-}
+}	
