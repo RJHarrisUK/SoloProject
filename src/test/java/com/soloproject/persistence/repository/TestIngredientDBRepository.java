@@ -59,7 +59,7 @@ public class TestIngredientDBRepository {
 	public void testCreateIngredient() {
 
 		String reply = repo.createIngredient(TestConstants.MOCK_JSON_OBJECT);
-		Assert.assertEquals(reply, "{\"message\": \"Ingredient has been successfully added\"}");
+		Assert.assertEquals("{\"message\": \"Ingredient has been successfully added\"}", reply);
 	}
 
 	@Test

@@ -32,8 +32,8 @@ public class RecipeDBRepository implements RecipeRepository {
 	public String getAllRecipes() {
 		Query query = manager.createQuery("SELECT a from Recipe a");
 		@SuppressWarnings("unchecked")
-		Collection<Recipe> Recipes =  (Collection<Recipe>) query.getResultList();
-		return util.getJSONForObject(Recipes);
+		Collection<Recipe> recipes =  (Collection<Recipe>) query.getResultList();
+		return util.getJSONForObject(recipes);
 	}
 
 	// CREATE
