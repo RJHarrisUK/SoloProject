@@ -34,6 +34,21 @@ public class Recipe {
 	// default constructor
 	public Recipe() {
 	}
+	
+	// constructor for tests
+	public Recipe(int recipeId, String recipeName, Set<Ingredient> ingredientSet) {
+		super();
+		this.recipeId = recipeId;
+		this.recipeName = recipeName;
+		this.ingredientSet = ingredientSet;
+	}
+	
+	// additional constructor for tests
+	public Recipe(int recipeId, String recipeName) {
+		super();
+		this.recipeId = recipeId;
+		this.recipeName = recipeName;
+	}
 
 	// other constructor
 	public Recipe(int recipeId, String recipeName) {
