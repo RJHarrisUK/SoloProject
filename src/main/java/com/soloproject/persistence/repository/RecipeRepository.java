@@ -24,4 +24,3 @@ public interface RecipeRepository {
 	String removeFromRecipe(int recipeId, int ingredientId);
 	
 }
-

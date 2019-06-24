@@ -70,4 +70,3 @@ public class RecipeController {
 		return service.removeFromRecipe(recipeId, ingredientId);
 	}
 
-}

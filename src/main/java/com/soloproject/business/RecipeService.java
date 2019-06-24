@@ -22,5 +22,3 @@ public interface RecipeService {
 
 	// DELETE (JOINT)
 	String removeFromRecipe(int recipeId, int ingredientId);
-	
-}

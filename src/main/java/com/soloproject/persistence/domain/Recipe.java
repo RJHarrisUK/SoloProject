@@ -1,3 +1,4 @@
+    
 package com.soloproject.persistence.domain;
 
 import java.util.HashSet;
@@ -42,7 +43,7 @@ public class Recipe {
 		this.recipeName = recipeName;
 		this.ingredientSet = ingredientSet;
 	}
-	
+  
 	// additional constructor for tests
 	public Recipe(int recipeId, String recipeName) {
 		super();
@@ -75,4 +76,4 @@ public class Recipe {
 	public void setIngredientSet(Set<Ingredient> ingredientSet) {
 		this.ingredientSet = ingredientSet;
 	}
-}
+
