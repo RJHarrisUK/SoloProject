@@ -61,3 +61,4 @@ public class IngredientController {
 	public void setService(IngredientService service) {
 		this.service = service;
 	}
+}

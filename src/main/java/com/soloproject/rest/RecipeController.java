@@ -69,4 +69,4 @@ public class RecipeController {
 	public String removeFromRecipe(@PathParam("recipeId") int recipeId, @PathParam("ingredientId") int ingredientId) {
 		return service.removeFromRecipe(recipeId, ingredientId);
 	}
-
+}

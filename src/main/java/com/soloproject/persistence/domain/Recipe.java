@@ -76,4 +76,5 @@ public class Recipe {
 	public void setIngredientSet(Set<Ingredient> ingredientSet) {
 		this.ingredientSet = ingredientSet;
 	}
+}
 
