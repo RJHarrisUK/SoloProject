@@ -87,8 +87,8 @@ public class RecipeDBRepository implements RecipeRepository {
 	@Transactional(REQUIRED)
 	public String addToRecipe(int recipeId, int ingredientId) {
 		Ingredient ingredientToAdd = manager.find(Ingredient.class, ingredientId);
-		Recipe recipeToPopulate = manager.find(Recipe.class, recipeId);
-		recipeToPopulate.getIngredientSet().add(ingredientToAdd);
+		Recipe recipeToPopulate = manager.find(Recipe.class, recipeId);	
+		recipeToPopulate.getIngredientSet().add(ingredientToAdd);	
 		manager.persist(recipeToPopulate);
 		return "{\"message\": \"Ingredient successfully added to Recipe\"}";
 	}
