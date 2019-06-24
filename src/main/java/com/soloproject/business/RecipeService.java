@@ -14,4 +14,13 @@ public interface RecipeService {
 	//DESTROY
 	String deleteRecipe(int recipeID);
 	
+	//READ2
+	String findRecipe(int recipeId);
+	
+	// CREATE (JOINT)
+	String addToRecipe(int recipeId, int ingredientId);
+
+	// DELETE (JOINT)
+	String removeFromRecipe(int recipeId, int ingredientId);
+	
 }
